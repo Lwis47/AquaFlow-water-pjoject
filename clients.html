@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <meta name="description" content="AquaFlow client directory" />
+    <title>AquaFlow | Clients</title>
+    <link
+      rel="icon"
+      href="assets/icons/aquaflow-mark.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <img src="assets/icons/aquaflow-mark.svg" alt="" />
+          <span>
+            <strong class="brand-name"> AquaFlow</strong>
+            <small class="brand-sub"> WATER SOLUTIONS</small>
+          </span>
+        </a>
+        <p class="nav-label">Workspace</p>
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" href="index.html">
+                <span class="nav-icon"> ▦</span>
+                Overview</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="applications.html">
+                <span class="nav-icon"> ▤</span>
+                Applications
+                <span class="badge pending" style="margin-left: auto"> 8</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link active" href="clients.html">
+                <span class="nav-icon"> ♙</span>
+                Clients</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="services.html">
+                <span class="nav-icon"> ◈</span>
+                Services &amp; rates</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="calculator.html">
+                <span class="nav-icon"> ⌁</span>
+                Quote builder</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <p class="nav-label">Insights</p>
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" href="reports.html">
+                <span class="nav-icon"> ◫</span>
+                Reports</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="help-card">
+          <b> Need a hand?</b>
+          <p>Find service guidance and pricing support.</p>
+          <a
+            href="#"
+            data-toast="Support centre will be available with the live system."
+          >
+            Visit support →</a
+          >
+        </div>
+        <div class="profile">
+          <span class="avatar"> AM</span>
+          <span>
+            <b> Alex Mwangi</b>
+            <small> Operations manager</small>
+          </span>
+        </div>
+      </aside>
+      <main class="page">
+        <header class="topbar">
+          <button
+            class="icon-button mobile-toggle"
+            data-menu-toggle
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+          <p class="crumb">Workspace <span> /</span> Clients</p>
+          <div class="top-actions">
+            <button class="icon-button notification" aria-label="Notifications">
+              ♧
+            </button>
+            <a class="button" href="#new-client"> ＋ Add client</a>
+          </div>
+        </header>
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow">Client relationships</p>
+            <h1>Client directory</h1>
+            <p class="heading-copy">
+              A clean, searchable record of every home, farm and organisation
+              AquaFlow serves.
+            </p>
+          </div>
+        </section>
+        <section class="client-layout">
+          <div>
+            <div class="filter-bar">
+              <div class="search">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m20 20-3.5-3.5"></path>
+                </svg>
+                <input
+                  data-filter-table="#client-list"
+                  placeholder="Search clients"
+                />
+              </div>
+              <select class="filter-select">
+                <option>All categories</option>
+                <option>Domestic</option>
+                <option>Commercial</option>
+                <option>Industrial</option>
+              </select>
+            </div>
+            <div class="client-stack" id="client-list">
+              <article class="client-card">
+                <span class="mini-avatar"> JM</span>
+                <div>
+                  <h3>Joy Muthoni</h3>
+                  <p>Domestic · Kangundo, Machakos · 0712 845 230</p>
+                </div>
+                <div class="client-meta">
+                  <b> 1 active project</b>
+                  Client since Oct 2026
+                </div>
+              </article>
+              <article class="client-card">
+                <span class="mini-avatar"> KS</span>
+                <div>
+                  <h3>Kijani Schools</h3>
+                  <p>Commercial · Ruiru, Kiambu · 020 273 8201</p>
+                </div>
+                <div class="client-meta">
+                  <b> 2 active projects</b>
+                  Client since Sep 2026
+                </div>
+              </article>
+              <article class="client-card">
+                <span class="mini-avatar"> GO</span>
+                <div>
+                  <h3>Green Oaks Farm</h3>
+                  <p>Commercial · Ngong, Kajiado · 0722 340 185</p>
+                </div>
+                <div class="client-meta">
+                  <b> 1 active project</b>
+                  Client since Aug 2026
+                </div>
+              </article>
+              <article class="client-card">
+                <span class="mini-avatar"> MW</span>
+                <div>
+                  <h3>Mercy Wanjiru</h3>
+                  <p>Domestic · Kitengela, Kajiado · 0703 774 521</p>
+                </div>
+                <div class="client-meta">
+                  <b> No active projects</b>
+                  Client since Jul 2026
+                </div>
+              </article>
+            </div>
+          </div>
+          <aside class="insight-card">
+            <h3>Client mix</h3>
+            <p>Distribution of your current client book by category.</p>
+            <div class="progress-row">
+              <span> Domestic <b> 53%</b> </span>
+              <div class="progress">
+                <i style="width: 53%"> </i>
+              </div>
+            </div>
+            <div class="progress-row">
+              <span> Commercial <b> 35%</b> </span>
+              <div class="progress">
+                <i style="width: 35%"> </i>
+              </div>
+            </div>
+            <div class="progress-row">
+              <span> Industrial <b> 12%</b> </span>
+              <div class="progress">
+                <i style="width: 12%"> </i>
+              </div>
+            </div>
+          </aside>
+        </section>
+        <section class="panel" id="new-client" style="margin-top: 20px">
+          <div class="panel-head">
+            <div>
+              <h2 class="panel-title">Add a client</h2>
+              <p class="panel-subtitle">
+                Capture the key contact details before creating a service
+                request.
+              </p>
+            </div>
+          </div>
+          <form data-client-form>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="client-name"> Full name or organisation</label>
+                <input
+                  class="field"
+                  id="client-name"
+                  placeholder="Client name"
+                />
+              </div>
+              <div class="form-field">
+                <label for="client-type"> Client category</label>
+                <select id="client-type">
+                  <option>Domestic</option>
+                  <option>Commercial</option>
+                  <option>Industrial</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="client-phone"> Telephone number</label>
+                <input
+                  class="field"
+                  id="client-phone"
+                  placeholder="07XX XXX XXX"
+                />
+              </div>
+              <div class="form-field">
+                <label for="client-email"> Email address</label>
+                <input
+                  class="field"
+                  id="client-email"
+                  type="email"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div class="form-field full">
+                <label for="client-address"> Address / location</label>
+                <input
+                  class="field"
+                  id="client-address"
+                  placeholder="Town, county and nearest landmark"
+                />
+              </div>
+            </div>
+            <div
+              style="display: flex; justify-content: flex-end; margin-top: 19px"
+            >
+              <button
+                class="button"
+                type="submit"
+              >
+                Save client
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+    <div class="toast" role="status">
+      <i> ✓</i>
+      <span> Saved</span>
+    </div>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<svg
+width="48"
+height="48"
+viewBox="0 0 48 48"
+fill="none"
+xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient
+id="g"
+x1="9"
+y1="5"
+x2="39"
+y2="44"
+gradientUnits="userSpaceOnUse">
+<stop
+stop-color="#35D6D0"/>
+<stop
+offset="1"
+stop-color="#0E78A5"/>
+</linearGradient>
+</defs>
+<path
+d="M24 4C18 12 10 20 10 29.3A14 14 0 0 0 24 43a14 14 0 0 0 14-13.7C38 20 30 12 24 4Z"
+fill="url(#g)"/>
+<path
+d="M16.5 29.5c2.9 3.7 8.7 5.7 15.3 1.4"
+stroke="white"
+stroke-width="3"
+stroke-linecap="round"/>
+<circle
+cx="19"
+cy="22"
+r="2"
+fill="white"
+fill-opacity=".9"/>
+</svg>

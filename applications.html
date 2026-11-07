@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <meta name="description" content="AquaFlow service applications" />
+    <title>AquaFlow | Applications</title>
+    <link
+      rel="icon"
+      href="assets/icons/aquaflow-mark.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <img src="assets/icons/aquaflow-mark.svg" alt="" />
+          <span>
+            <strong class="brand-name"> AquaFlow</strong>
+            <small class="brand-sub"> WATER SOLUTIONS</small>
+          </span>
+        </a>
+        <p class="nav-label">Workspace</p>
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" href="index.html">
+                <span class="nav-icon"> ▦</span>
+                Overview</a
+              >
+            </li>
+            <li>
+              <a class="nav-link active" href="applications.html">
+                <span class="nav-icon"> ▤</span>
+                Applications
+                <span class="badge pending" style="margin-left: auto"> 8</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="clients.html">
+                <span class="nav-icon"> ♙</span>
+                Clients</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="services.html">
+                <span class="nav-icon"> ◈</span>
+                Services &amp; rates</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="calculator.html">
+                <span class="nav-icon"> ⌁</span>
+                Quote builder</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <p class="nav-label">Insights</p>
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" href="reports.html">
+                <span class="nav-icon"> ◫</span>
+                Reports</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="help-card">
+          <b> Need a hand?</b>
+          <p>Find service guidance and pricing support.</p>
+          <a
+            href="#"
+            data-toast="Support centre will be available with the live system."
+          >
+            Visit support →</a
+          >
+        </div>
+        <div class="profile">
+          <span class="avatar"> AM</span>
+          <span>
+            <b> Alex Mwangi</b>
+            <small> Operations manager</small>
+          </span>
+        </div>
+      </aside>
+      <main class="page">
+        <header class="topbar">
+          <button
+            class="icon-button mobile-toggle"
+            data-menu-toggle
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+          <p class="crumb">Workspace <span> /</span> Applications</p>
+          <div class="top-actions">
+            <button class="icon-button notification" aria-label="Notifications">
+              ♧
+            </button>
+            <a class="button" href="#new-application"> ＋ New application</a>
+          </div>
+        </header>
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow">Service pipeline</p>
+            <h1>Applications</h1>
+            <p class="heading-copy">
+              Capture every request clearly, from first enquiry to an approved
+              field project.
+            </p>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="filter-bar">
+            <div class="search">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="m20 20-3.5-3.5"></path>
+              </svg>
+              <input
+                data-filter-table="#applications-table"
+                placeholder="Search by client, reference or service"
+              />
+            </div>
+            <select class="filter-select">
+              <option>All statuses</option>
+              <option>Review</option>
+              <option>Survey booked</option>
+              <option>Approved</option>
+            </select>
+            <button
+              class="button outline small"
+              data-toast="Filters are ready for live data."
+            >
+              Filter
+            </button>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table" id="applications-table">
+              <thead>
+                <tr>
+                  <th>Reference</th>
+                  <th>Client</th>
+                  <th>Requested service</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="primary">AF-1028</td>
+                  <td>
+                    <div class="person">
+                      <span class="mini-avatar"> JM</span>
+                      <span> Joy Muthoni</span>
+                    </div>
+                  </td>
+                  <td>Symmetric drilling</td>
+                  <td>Kangundo, Machakos</td>
+                  <td>
+                    <span class="badge pending"> Review</span>
+                  </td>
+                  <td>
+                    <a class="link" href="#new-application"> Open</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="primary">AF-1027</td>
+                  <td>
+                    <div class="person">
+                      <span class="mini-avatar"> KS</span>
+                      <span> Kijani Schools</span>
+                    </div>
+                  </td>
+                  <td>Solar pump installation</td>
+                  <td>Ruiru, Kiambu</td>
+                  <td>
+                    <span class="badge info"> Survey booked</span>
+                  </td>
+                  <td>
+                    <a class="link" href="#new-application"> Open</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="primary">AF-1026</td>
+                  <td>
+                    <div class="person">
+                      <span class="mini-avatar"> GO</span>
+                      <span> Green Oaks Farm</span>
+                    </div>
+                  </td>
+                  <td>Tank installation</td>
+                  <td>Ngong, Kajiado</td>
+                  <td>
+                    <span class="badge"> Approved</span>
+                  </td>
+                  <td>
+                    <a class="link" href="#new-application"> Open</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="primary">AF-1025</td>
+                  <td>
+                    <div class="person">
+                      <span class="mini-avatar"> MW</span>
+                      <span> Mercy Wanjiru</span>
+                    </div>
+                  </td>
+                  <td>Plumbing assessment</td>
+                  <td>Kitengela, Kajiado</td>
+                  <td>
+                    <span class="badge draft"> Draft</span>
+                  </td>
+                  <td>
+                    <a class="link" href="#new-application"> Open</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel" id="new-application" style="margin-top: 20px">
+          <div class="panel-head">
+            <div>
+              <h2 class="panel-title">Register an application</h2>
+              <p class="panel-subtitle">
+                This frontend form demonstrates the details the live system will
+                store.
+              </p>
+            </div>
+            <span class="badge draft"> Draft AF-1029</span>
+          </div>
+          <form data-application-form>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="app-name"> Client name</label>
+                <input
+                  class="field"
+                  id="app-name"
+                  placeholder="e.g. Amina Otieno"
+                />
+              </div>
+              <div class="form-field">
+                <label for="app-phone"> Telephone number</label>
+                <input
+                  class="field"
+                  id="app-phone"
+                  type="tel"
+                  placeholder="07XX XXX XXX"
+                />
+              </div>
+              <div class="form-field">
+                <label for="app-category"> Client category</label>
+                <select id="app-category">
+                  <option>Domestic</option>
+                  <option>Commercial</option>
+                  <option>Industrial</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="app-service"> Requested service</label>
+                <select id="app-service">
+                  <option>Symmetric drilling</option>
+                  <option>Core drilling</option>
+                  <option>Geo-technical drilling</option>
+                  <option>Water pump installation</option>
+                  <option>Tank installation</option>
+                  <option>Plumbing service</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="app-location"> Borehole / project location</label>
+                <input
+                  class="field"
+                  id="app-location"
+                  placeholder="Estate, town and county"
+                />
+              </div>
+              <div class="form-field full">
+                <label for="app-notes"> Project notes</label>
+                <textarea
+                  id="app-notes"
+                  placeholder="Add access details, water needs or a preferred survey date."
+                ></textarea>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                justify-content: flex-end;
+                gap: 10px;
+                margin-top: 19px;
+              "
+            >
+              <button
+                class="button outline"
+                type="reset"
+                data-toast="Draft saved locally for this frontend preview."
+              >
+                Save draft
+              </button>
+              <button
+                class="button"
+                type="submit"
+              >
+                Submit application
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+    <div class="toast" role="status">
+      <i> ✓</i>
+      <span> Saved</span>
+    </div>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
+  </body>
+</html>

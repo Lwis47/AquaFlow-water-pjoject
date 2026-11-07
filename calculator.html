@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <meta name="description" content="AquaFlow quotation builder" />
+    <title>AquaFlow | Quote builder</title>
+    <link
+      rel="icon"
+      href="assets/icons/aquaflow-mark.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <img src="assets/icons/aquaflow-mark.svg" alt="" />
+          <span>
+            <strong class="brand-name"> AquaFlow</strong>
+            <small class="brand-sub"> WATER SOLUTIONS</small>
+          </span>
+        </a>
+        <p class="nav-label">Workspace</p>
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" href="index.html">
+                <span class="nav-icon"> ▦</span>
+                Overview</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="applications.html">
+                <span class="nav-icon"> ▤</span>
+                Applications
+                <span class="badge pending" style="margin-left: auto"> 8</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="clients.html">
+                <span class="nav-icon"> ♙</span>
+                Clients</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="services.html">
+                <span class="nav-icon"> ◈</span>
+                Services &amp; rates</a
+              >
+            </li>
+            <li>
+              <a class="nav-link active" href="calculator.html">
+                <span class="nav-icon"> ⌁</span>
+                Quote builder</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <p class="nav-label">Insights</p>
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" href="reports.html">
+                <span class="nav-icon"> ◫</span>
+                Reports</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="help-card">
+          <b> Need a hand?</b>
+          <p>Find service guidance and pricing support.</p>
+          <a
+            href="#"
+            data-toast="Support centre will be available with the live system."
+          >
+            Visit support →</a
+          >
+        </div>
+        <div class="profile">
+          <span class="avatar"> AM</span>
+          <span>
+            <b> Alex Mwangi</b>
+            <small> Operations manager</small>
+          </span>
+        </div>
+      </aside>
+      <main class="page">
+        <header class="topbar">
+          <button
+            class="icon-button mobile-toggle"
+            data-menu-toggle
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+          <p class="crumb">Workspace <span> /</span> Quote builder</p>
+          <div class="top-actions">
+            <button class="icon-button notification" aria-label="Notifications">
+              ♧
+            </button>
+            <a class="button outline" href="services.html"> View rates</a>
+          </div>
+        </header>
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow">Accurate, transparent pricing</p>
+            <h1>Build a quotation</h1>
+            <p class="heading-copy">
+              Choose a client category and service needs to calculate the
+              current estimated project cost.
+            </p>
+          </div>
+        </section>
+        <section class="calculator-layout">
+          <article class="panel">
+            <div class="calc-steps">
+              <i class="done"> 1</i>
+              Client <span class="line"> </span>
+              <i class="active"> 2</i>
+              Services <span class="line"> </span>
+              <i> 3</i>
+              Review
+            </div>
+            <form data-quote-form>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="quote-client"> Client name</label>
+                  <input
+                    class="field"
+                    id="quote-client"
+                    list="quote-client-options"
+                    placeholder="Select or enter a client"
+                  />
+                  <input id="quote-client-id" type="hidden" />
+                  <datalist id="quote-client-options"></datalist>
+                </div>
+                <div class="form-field">
+                  <label for="quote-ref"> Quote reference</label>
+                  <input
+                    class="field"
+                    id="quote-ref"
+                    value="AQ-2026-043"
+                    readonly
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="category"> Client category</label>
+                  <select id="category" name="category">
+                    <option>Domestic</option>
+                    <option>Commercial</option>
+                    <option>Industrial</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="drilling"> Drilling service</label>
+                  <select id="drilling" name="drilling">
+                    <option>Symmetric</option>
+                    <option>Core</option>
+                    <option>Geotechnical</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="pump"> Pump installation</label>
+                  <select id="pump" name="pump">
+                    <option>None</option>
+                    <option>Submersible</option>
+                    <option>Solar</option>
+                    <option>Hand</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="depth"> Borehole depth (metres)</label>
+                  <input
+                    class="field"
+                    id="depth"
+                    name="depth"
+                    type="number"
+                    min="0"
+                    value="90"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="height"> Tank height (metres)</label>
+                  <input
+                    class="field"
+                    id="height"
+                    name="height"
+                    type="number"
+                    min="0"
+                    value="5"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="quote-valid"> Quote validity</label>
+                  <select id="quote-valid">
+                    <option>30 days</option>
+                    <option>14 days</option>
+                    <option>7 days</option>
+                  </select>
+                </div>
+                <div class="form-field full">
+                  <label for="quote-note"> Notes for the client</label>
+                  <textarea
+                    id="quote-note"
+                    placeholder="Optional scope details, site requirements or exclusions."
+                  ></textarea>
+                </div>
+                <div class="form-field full">
+                  <p class="panel-subtitle">Plumbing (optional - enter the agreed site rates for a transparent quote)</p>
+                </div>
+                <div class="form-field">
+                  <label for="pipe-type"> Pipe type</label>
+                  <select id="pipe-type" name="pipe_type"><option value="">No plumbing</option><option>PPR</option><option>PVC</option><option>HDPE</option><option>GI</option></select>
+                </div>
+                <div class="form-field">
+                  <label for="pipe-diameter"> Pipe diameter (inches)</label>
+                  <input class="field" id="pipe-diameter" name="pipe_diameter_inches" type="number" min="0" step="0.25" value="0" />
+                </div>
+                <div class="form-field">
+                  <label for="pipe-length"> Pipe length (metres)</label>
+                  <input class="field" id="pipe-length" name="pipe_length_metres" type="number" min="0" value="0" />
+                </div>
+                <div class="form-field">
+                  <label for="pipe-rate"> Agreed pipe rate (KSh/m)</label>
+                  <input class="field" id="pipe-rate" name="pipe_rate_per_metre" type="number" min="0" value="0" />
+                </div>
+                <div class="form-field">
+                  <label for="outlets"> Number of outlets</label>
+                  <input class="field" id="outlets" name="outlets" type="number" min="0" value="0" />
+                </div>
+                <div class="form-field">
+                  <label for="outlet-rate"> Agreed outlet rate (KSh)</label>
+                  <input class="field" id="outlet-rate" name="outlet_rate" type="number" min="0" value="0" />
+                </div>
+              </div>
+            </form>
+          </article>
+          <aside class="quote-summary">
+            <h3>Quotation summary</h3>
+            <p class="quote-id">AQ-2026-043 · Estimated cost</p>
+            <div class="quote-line">
+              <span> Survey &amp; authority fees</span>
+              <b data-quote-fees> KSh 17,000</b>
+            </div>
+            <div class="quote-line">
+              <span> Selected services</span>
+              <b data-quote-services> KSh 130,000</b>
+            </div>
+            <div class="quote-line">
+              <span> Depth &amp; height cost</span>
+              <b data-quote-depth> KSh 95,000</b>
+            </div>
+            <div class="quote-line">
+              <span> Plumbing</span>
+              <b data-quote-plumbing> KSh 0</b>
+            </div>
+            <div class="quote-line">
+              <span> Subtotal</span>
+              <b data-quote-subtotal> KSh 242,000</b>
+            </div>
+            <div class="quote-line">
+              <span> 16% tax</span>
+              <b data-quote-tax> KSh 38,720</b>
+            </div>
+            <div class="quote-total">
+              <span> Total estimate</span>
+              <b data-quote-total> KSh 280,720</b>
+            </div>
+            <p class="quote-note">
+              Tank and plumbing work are assessed separately because final
+              requirements depend on site conditions.
+            </p>
+            <button
+              class="button"
+              data-save-quote
+            >
+              Save quote draft
+            </button>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <div class="toast" role="status">
+      <i> ✓</i>
+      <span> Saved</span>
+    </div>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/calculator.js"></script>
+    <script src="assets/js/forms.js"></script>
+  </body>
+</html>

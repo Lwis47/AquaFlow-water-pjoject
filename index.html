@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="AquaFlow Water Solutions operations dashboard"
+    />
+    <title>AquaFlow | Operations dashboard</title>
+    <link
+      rel="icon"
+      href="assets/icons/aquaflow-mark.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <img src="assets/icons/aquaflow-mark.svg" alt="" />
+          <span>
+            <strong class="brand-name"> AquaFlow</strong>
+            <small class="brand-sub"> WATER SOLUTIONS</small>
+          </span>
+        </a>
+        <p class="nav-label">Workspace</p>
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link active" href="index.html">
+                <span class="nav-icon"> ▦</span>
+                Overview</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="applications.html">
+                <span class="nav-icon"> ▤</span>
+                Applications
+                <span class="badge pending" style="margin-left: auto"> 8</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="clients.html">
+                <span class="nav-icon"> ♙</span>
+                Clients</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="services.html">
+                <span class="nav-icon"> ◈</span>
+                Services &amp; rates</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="calculator.html">
+                <span class="nav-icon"> ⌁</span>
+                Quote builder</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <p class="nav-label">Insights</p>
+        <nav>
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link" href="reports.html">
+                <span class="nav-icon"> ◫</span>
+                Reports</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="help-card">
+          <b> Need a hand?</b>
+          <p>Find service guidance and pricing support.</p>
+          <a
+            href="#"
+            data-toast="Support centre will be available with the live system."
+          >
+            Visit support →</a
+          >
+        </div>
+        <div class="profile">
+          <span class="avatar"> AM</span>
+          <span>
+            <b> Alex Mwangi</b>
+            <small> Operations manager</small>
+          </span>
+        </div>
+      </aside>
+      <main class="page">
+        <header class="topbar">
+          <button
+            class="icon-button mobile-toggle"
+            data-menu-toggle
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+          <p class="crumb">Workspace <span> /</span> Overview</p>
+          <div class="top-actions">
+            <button class="icon-button notification" aria-label="Notifications">
+              ♧
+            </button>
+            <a class="button" href="applications.html"> ＋ New application</a>
+          </div>
+        </header>
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow">Wednesday, 28 October</p>
+            <h1>Good morning, Cypher.</h1>
+            <p class="heading-copy">
+              Here is a clear view of AquaFlow's enquiries, field work and
+              revenue today.
+            </p>
+          </div>
+        </section>
+        <section class="overview-hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Water solutions that move with you</p>
+            <h2>Reliable water begins with a well-planned project.</h2>
+            <p>
+              Create applications, prepare accurate quotes and keep every client
+              project on track from one place.
+            </p>
+          </div>
+          <div
+            class="hero-image"
+            role="img"
+            aria-label="Borehole installation work"
+          ></div>
+        </section>
+        <section class="stats" aria-label="Key statistics">
+          <article class="stat-card">
+            <span class="stat-icon"> ⌂</span>
+            <span class="stat-label"> Active projects</span>
+            <strong class="stat-value" id="dashboard-active-projects">
+              24 <small class="stat-change"> ↑ 12%</small>
+            </strong>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon amber"> ◷</span>
+            <span class="stat-label"> Pending applications</span>
+            <strong class="stat-value" id="dashboard-pending-applications">
+              8 <small class="stat-change down"> ↑ 3</small>
+            </strong>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon navy"> ↗</span>
+            <span class="stat-label"> Month-to-date revenue</span>
+            <strong class="stat-value" id="dashboard-revenue">
+              KSh 1.84M <small class="stat-change"> ↑ 18%</small>
+            </strong>
+          </article>
+          <article class="stat-card">
+            <span class="stat-icon red"> ◌</span>
+            <span class="stat-label"> Quotes awaiting approval</span>
+            <strong class="stat-value" id="dashboard-pending-quotes">
+              6 <small class="stat-change"> KSh 3.2M</small>
+            </strong>
+          </article>
+        </section>
+        <section class="content-grid">
+          <div>
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Revenue overview</h2>
+                  <p class="panel-subtitle">
+                    Service revenue for the last six months
+                  </p>
+                </div>
+                <select
+                  aria-label="Time period"
+                  style="width: 100px; min-height: 32px"
+                >
+                  <option>6 months</option>
+                  <option>This year</option>
+                </select>
+              </div>
+              <div class="chart-wrap" aria-label="Revenue bar chart">
+                <div class="bar-set">
+                  <i class="bar" style="height: 42%"> </i>
+                  <i class="bar current" style="height: 56%"> </i>
+                  <label> May</label>
+                </div>
+                <div class="bar-set">
+                  <i class="bar" style="height: 52%"> </i>
+                  <i class="bar current" style="height: 46%"> </i>
+                  <label> Jun</label>
+                </div>
+                <div class="bar-set">
+                  <i class="bar" style="height: 48%"> </i>
+                  <i class="bar current" style="height: 66%"> </i>
+                  <label> Jul</label>
+                </div>
+                <div class="bar-set">
+                  <i class="bar" style="height: 65%"> </i>
+                  <i class="bar current" style="height: 60%"> </i>
+                  <label> Aug</label>
+                </div>
+                <div class="bar-set">
+                  <i class="bar" style="height: 55%"> </i>
+                  <i class="bar current" style="height: 77%"> </i>
+                  <label> Sep</label>
+                </div>
+                <div class="bar-set">
+                  <i class="bar" style="height: 73%"> </i>
+                  <i class="bar current" style="height: 92%"> </i>
+                  <label> Oct</label>
+                </div>
+              </div>
+              <div class="chart-legend">
+                <span>
+                  <i class="dot"> </i>
+                  Collected revenue</span
+                >
+                <span>
+                  <i class="dot pale"> </i>
+                  Quoted value</span
+                >
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Recent applications</h2>
+                  <p class="panel-subtitle">
+                    Latest client requests across all services
+                  </p>
+                </div>
+                <a class="link" href="applications.html">
+                  View all applications →</a
+                >
+              </div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Client</th>
+                      <th>Service</th>
+                      <th>Reference</th>
+                      <th>Status</th>
+                      <th>Received</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dashboard-applications">
+                    <tr>
+                      <td>
+                        <div class="person">
+                          <span class="mini-avatar"> JM</span>
+                          <span class="primary"> J. Muthoni</span>
+                        </div>
+                      </td>
+                      <td>Borehole drilling</td>
+                      <td>AF-1028</td>
+                      <td>
+                        <span class="badge pending"> Review</span>
+                      </td>
+                      <td>Today, 09:42</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="person">
+                          <span class="mini-avatar"> KS</span>
+                          <span class="primary"> Kijani Schools</span>
+                        </div>
+                      </td>
+                      <td>Solar pump</td>
+                      <td>AF-1027</td>
+                      <td>
+                        <span class="badge info"> Survey booked</span>
+                      </td>
+                      <td>Yesterday</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="person">
+                          <span class="mini-avatar"> GO</span>
+                          <span class="primary"> Green Oaks Farm</span>
+                        </div>
+                      </td>
+                      <td>Tank installation</td>
+                      <td>AF-1026</td>
+                      <td>
+                        <span class="badge"> Approved</span>
+                      </td>
+                      <td>27 Oct</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+          <div>
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Quick actions</h2>
+                  <p class="panel-subtitle">Start the next step in seconds</p>
+                </div>
+              </div>
+              <div class="action-list">
+                <a class="quick-action" href="applications.html">
+                  <span> ＋</span>
+                  <span>
+                    <b> Register an application</b>
+                    <small> Capture a new client request</small>
+                  </span>
+                  <i class="arrow"> →</i>
+                </a>
+                <a class="quick-action" href="calculator.html">
+                  <span> ⌁</span>
+                  <span>
+                    <b> Build a quotation</b>
+                    <small> Calculate service charges and tax</small>
+                  </span>
+                  <i class="arrow"> →</i>
+                </a>
+                <a class="quick-action" href="clients.html">
+                  <span> ♙</span>
+                  <span>
+                    <b> Add a client</b>
+                    <small> Grow your client directory</small>
+                  </span>
+                  <i class="arrow"> →</i>
+                </a>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Field work this week</h2>
+                  <p class="panel-subtitle">Your upcoming confirmed jobs</p>
+                </div>
+                <a class="link" href="reports.html"> Calendar →</a>
+              </div>
+              <div class="rate-list">
+                <div class="rate-item">
+                  <span>
+                    <b style="display: block; color: var(--navy)"> Thursday</b>
+                    08:30 · Machakos</span
+                  >
+                  <b> Site survey</b>
+                </div>
+                <div class="rate-item">
+                  <span>
+                    <b style="display: block; color: var(--navy)"> Friday</b>
+                    10:00 · Kiambu</span
+                  >
+                  <b> Pump install</b>
+                </div>
+                <div class="rate-item">
+                  <span>
+                    <b style="display: block; color: var(--navy)"> Saturday</b>
+                    09:00 · Kajiado</span
+                  >
+                  <b> Drilling</b>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="toast" role="status">
+      <i> ✓</i>
+      <span> Saved</span>
+    </div>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/forms.js"></script>
+  </body>
+</html>

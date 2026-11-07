@@ -1,0 +1,5 @@
+tmp/
+backend/storage/*.sqlite
+backend/storage/*.sqlite-*
+.git/
+node_modules/

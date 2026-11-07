@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: aquaflow-water-solutions
+    runtime: docker
+    plan: starter
+    disk:
+      name: aquaflow-data
+      mountPath: /var/www/html/backend/storage
+      sizeGB: 1
+    healthCheckPath: /backend/public/api.php?route=health
