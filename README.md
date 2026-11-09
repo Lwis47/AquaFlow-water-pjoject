@@ -4,21 +4,27 @@ A responsive operations system for borehole drilling and water-services work. It
 
 ## Open locally
 
-Install PHP 8.2+ with the PDO SQLite extension, then run:
+Install PHP 8.2+ with the PDO SQLite extension, then run the bundled launcher
+(it enables the SQLite driver for the session without needing admin rights):
 
 ```powershell
-php -S localhost:8000
+.\serve.cmd
 ```
 
-Open `http://localhost:8000`. The database is created automatically at `backend/storage/aquaflow.sqlite`.
+On macOS / Linux use `sh serve.sh`. If your PHP already has `pdo_sqlite` enabled
+globally you can instead run `php -S localhost:8000`.
+
+Open `http://localhost:8000`. The database is created automatically at
+`backend/storage/aquaflow.sqlite` and seeded with a realistic demo client book,
+applications and quotations on first run.
 
 ## Included screens
 
 - Client directory with create, edit and safe removal
 - Service catalogue management
 - Application register and workflow-status updates
-- Saved quotations with drilling, pump, depth/height and optional plumbing calculation
-- Live fees, tax, revenue and activity reports
+- Saved quotations with drilling, pump, depth/height and optional plumbing calculation, plus Draft / Sent / Accepted / Expired status management
+- Live fees, tax, revenue and activity reports with CSV export
 
 ## Deploy on Render
 

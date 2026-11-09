@@ -9,18 +9,20 @@ initial-scale=1.0"
     />
     <meta name="description" content="AquaFlow service applications" />
     <title>AquaFlow | Applications</title>
-    <link
-      rel="icon"
-      href="assets/icons/aquaflow-mark.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/icons/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#0369a1" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar">
         <a class="brand" href="index.html">
-          <img src="assets/icons/aquaflow-mark.svg" alt="" />
+          <img src="assets/icons/favicon.svg" alt="AquaFlow water drop mark" />
           <span>
             <strong class="brand-name"> AquaFlow</strong>
             <small class="brand-sub"> WATER SOLUTIONS</small>
@@ -135,21 +137,18 @@ initial-scale=1.0"
               </svg>
               <input
                 data-filter-table="#applications-table"
+                data-filter-select="#application-status-filter"
                 placeholder="Search by client, reference or service"
               />
             </div>
-            <select class="filter-select">
-              <option>All statuses</option>
+            <select class="filter-select" id="application-status-filter" aria-label="Filter by status">
+              <option value="">All statuses</option>
               <option>Review</option>
               <option>Survey booked</option>
               <option>Approved</option>
+              <option>Completed</option>
+              <option>Draft</option>
             </select>
-            <button
-              class="button outline small"
-              data-toast="Filters are ready for live data."
-            >
-              Filter
-            </button>
           </div>
           <div class="table-wrap">
             <table class="data-table" id="applications-table">
@@ -160,7 +159,7 @@ initial-scale=1.0"
                   <th>Requested service</th>
                   <th>Location</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th>Created</th>
                 </tr>
               </thead>
               <tbody>
@@ -241,11 +240,9 @@ initial-scale=1.0"
             <div>
               <h2 class="panel-title">Register an application</h2>
               <p class="panel-subtitle">
-                This frontend form demonstrates the details the live system will
-                store.
+                Saved straight to the live application register.
               </p>
             </div>
-            <span class="badge draft"> Draft AF-1029</span>
           </div>
           <form data-application-form>
             <div class="form-grid">
@@ -312,9 +309,8 @@ initial-scale=1.0"
               <button
                 class="button outline"
                 type="reset"
-                data-toast="Draft saved locally for this frontend preview."
               >
-                Save draft
+                Clear form
               </button>
               <button
                 class="button"

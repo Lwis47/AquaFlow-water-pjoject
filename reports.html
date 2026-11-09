@@ -9,18 +9,20 @@ initial-scale=1.0"
     />
     <meta name="description" content="AquaFlow reports" />
     <title>AquaFlow | Reports</title>
-    <link
-      rel="icon"
-      href="assets/icons/aquaflow-mark.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/icons/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#0369a1" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar">
         <a class="brand" href="index.html">
-          <img src="assets/icons/aquaflow-mark.svg" alt="" />
+          <img src="assets/icons/favicon.svg" alt="AquaFlow water drop mark" />
           <span>
             <strong class="brand-name"> AquaFlow</strong>
             <small class="brand-sub"> WATER SOLUTIONS</small>
@@ -146,25 +148,45 @@ initial-scale=1.0"
             <a href="#activity" class="link"> Open report →</a>
           </article>
         </section>
+        <section class="panel" id="quotations" style="margin-bottom: 20px">
+          <div class="panel-head">
+            <div>
+              <h2 class="panel-title">Saved quotations</h2>
+              <p class="panel-subtitle">Move a quote through the pipeline to recognise revenue</p>
+            </div>
+            <a class="link" href="calculator.html"> Build a quote →</a>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table" id="quotes-table">
+              <thead>
+                <tr>
+                  <th>Reference</th>
+                  <th>Client</th>
+                  <th>Category</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                  <th>Created</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td colspan="7">Loading quotations…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
         <section class="content-grid">
           <div>
             <article class="panel" id="revenue">
               <div class="panel-head">
                 <div>
-                  <h2 class="panel-title">Revenue by service</h2>
+                  <h2 class="panel-title">Quoted value by service</h2>
                   <p class="panel-subtitle">
-                    October 2026 · frontend preview data
+                    Live totals from every saved quotation
                   </p>
                 </div>
-                <select
-                  aria-label="Report period"
-                  style="width: 120px; min-height: 32px"
-                >
-                  <option>October 2026</option>
-                  <option>September 2026</option>
-                </select>
               </div>
-              <div class="chart-wrap" aria-label="Service revenue bar chart">
+              <div class="chart-wrap" id="revenue-chart" aria-label="Service revenue bar chart">
                 <div class="bar-set">
                   <i class="bar current" style="height: 91%"> </i>
                   <label> Drilling</label>
@@ -202,25 +224,16 @@ initial-scale=1.0"
                 <div>
                   <h2 class="panel-title">Fees and taxes</h2>
                   <p class="panel-subtitle">
-                    Required contributions recorded this month
+                    Fees and tax from all saved quotations
                   </p>
                 </div>
-                <a
-                  class="link"
-                  href="#"
-                  data-toast="Detailed transaction reports require the backend."
-                >
-                  View detail →</a
-                >
+                <a class="link" href="#quotations"> View quotations →</a>
               </div>
               <div class="table-wrap">
                 <table class="data-table">
                   <thead>
                     <tr>
                       <th>Measure</th>
-                      <th>Domestic</th>
-                      <th>Commercial</th>
-                      <th>Industrial</th>
                       <th>Total</th>
                     </tr>
                   </thead>
@@ -287,20 +300,14 @@ initial-scale=1.0"
               </div>
             </article>
             <article class="panel">
-              <div class="empty-state">
-                <div class="empty-graphic">⇩</div>
-                <h3>Schedule a report</h3>
-                <p>
-                  When the backend is connected, regular reports can be
-                  delivered to your team automatically.
-                </p>
-                <button
-                  class="button outline small"
-                  style="margin-top: 15px"
-                  data-toast="Report scheduling will be available with the live system."
-                >
-                  Set up schedule
-                </button>
+              <div class="panel-head">
+                <div>
+                  <h2 class="panel-title">Quotation pipeline</h2>
+                  <p class="panel-subtitle">Value awaiting a decision</p>
+                </div>
+              </div>
+              <div class="rate-list" id="quote-pipeline">
+                <div class="rate-item"><span>Loading pipeline…</span></div>
               </div>
             </article>
           </aside>

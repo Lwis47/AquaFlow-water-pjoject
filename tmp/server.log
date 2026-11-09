@@ -1,0 +1,728 @@
+[Mon Nov  9 06:42:21 2026] PHP 8.5.12 Development Server (http://127.0.0.1:8000) started
+[Mon Nov  9 06:42:49 2026] 127.0.0.1:4322 Accepted
+[Mon Nov  9 06:42:49 2026] PHP Warning:  The use statement with non-compound name 'InvalidArgumentException' has no effect in C:\Users\lwisw\Desktop\Workspace\AquaFloWebsite\backend\public\api.php on line 9
+[Mon Nov  9 06:42:49 2026] PHP Warning:  The use statement with non-compound name 'Throwable' has no effect in C:\Users\lwisw\Desktop\Workspace\AquaFloWebsite\backend\public\api.php on line 10
+[Mon Nov  9 06:43:01 2026] 127.0.0.1:4322 [200]: GET /backend/public/api.php?route=health
+[Mon Nov  9 06:43:01 2026] 127.0.0.1:4322 Closing
+[Mon Nov  9 06:43:02 2026] 127.0.0.1:4324 Accepted
+[Mon Nov  9 06:43:05 2026] 127.0.0.1:4324 [200]: GET /backend/public/api.php?route=services
+[Mon Nov  9 06:43:05 2026] 127.0.0.1:4324 Closing
+[Mon Nov  9 06:43:07 2026] 127.0.0.1:4327 Accepted
+[Mon Nov  9 06:43:09 2026] 127.0.0.1:4327 [200]: GET /backend/public/api.php?route=reports/overview
+[Mon Nov  9 06:43:09 2026] 127.0.0.1:4327 Closing
+[Mon Nov  9 06:43:11 2026] 127.0.0.1:4328 Accepted
+[Mon Nov  9 06:43:14 2026] 127.0.0.1:4328 [201]: POST /backend/public/api.php?route=clients
+[Mon Nov  9 06:43:14 2026] 127.0.0.1:4328 Closing
+[Mon Nov  9 06:43:35 2026] 127.0.0.1:4339 Accepted
+[Mon Nov  9 06:43:38 2026] 127.0.0.1:4339 [200]: POST /backend/public/api.php?route=quotes/calculate
+[Mon Nov  9 06:43:38 2026] 127.0.0.1:4339 Closing
+[Mon Nov  9 06:43:40 2026] 127.0.0.1:4342 Accepted
+[Mon Nov  9 06:43:43 2026] 127.0.0.1:4342 [201]: POST /backend/public/api.php?route=quotes
+[Mon Nov  9 06:43:43 2026] 127.0.0.1:4342 Closing
+[Mon Nov  9 06:43:46 2026] 127.0.0.1:4352 Accepted
+[Mon Nov  9 06:43:49 2026] 127.0.0.1:4352 [201]: POST /backend/public/api.php?route=applications
+[Mon Nov  9 06:43:49 2026] 127.0.0.1:4352 Closing
+[Mon Nov  9 06:43:50 2026] 127.0.0.1:4354 Accepted
+[Mon Nov  9 06:43:52 2026] 127.0.0.1:4354 [200]: GET /backend/public/api.php?route=reports/overview
+[Mon Nov  9 06:43:52 2026] 127.0.0.1:4354 Closing
+[Mon Nov  9 06:48:45 2026] 127.0.0.1:37129 Accepted
+[Mon Nov  9 06:48:45 2026] PHP Warning:  The use statement with non-compound name 'InvalidArgumentException' has no effect in C:\Users\lwisw\Desktop\Workspace\AquaFloWebsite\backend\public\api.php on line 9
+[Mon Nov  9 06:48:45 2026] PHP Warning:  The use statement with non-compound name 'Throwable' has no effect in C:\Users\lwisw\Desktop\Workspace\AquaFloWebsite\backend\public\api.php on line 10
+[Mon Nov  9 06:49:07 2026] 127.0.0.1:37129 [200]: GET /backend/public/api.php?route=reports/overview
+[Mon Nov  9 06:49:07 2026] 127.0.0.1:37129 Closing
+[Mon Nov  9 06:49:07 2026] 127.0.0.1:37179 Accepted
+[Mon Nov  9 06:49:09 2026] 127.0.0.1:37179 [200]: GET /backend/public/api.php?route=quotes
+[Mon Nov  9 06:49:09 2026] 127.0.0.1:37179 Closing
+[Mon Nov  9 06:49:29 2026] 127.0.0.1:37210 Accepted
+[Mon Nov  9 06:49:30 2026] 127.0.0.1:37210 [200]: PUT /backend/public/api.php?route=quotes/7
+[Mon Nov  9 06:49:30 2026] 127.0.0.1:37210 Closing
+[Mon Nov  9 06:49:31 2026] 127.0.0.1:37214 Accepted
+[Mon Nov  9 06:49:32 2026] 127.0.0.1:37214 [422]: PUT /backend/public/api.php?route=quotes/7
+[Mon Nov  9 06:49:32 2026] 127.0.0.1:37214 Closing
+[Mon Nov  9 06:49:32 2026] 127.0.0.1:37217 Accepted
+[Mon Nov  9 06:49:34 2026] 127.0.0.1:37217 [200]: DELETE /backend/public/api.php?route=quotes/8
+[Mon Nov  9 06:49:34 2026] 127.0.0.1:37217 Closing
+[Mon Nov  9 06:49:34 2026] 127.0.0.1:37218 Accepted
+[Mon Nov  9 06:49:36 2026] 127.0.0.1:37218 [201]: POST /backend/public/api.php?route=quotes
+[Mon Nov  9 06:49:36 2026] 127.0.0.1:37218 Closing
+[Mon Nov  9 06:49:36 2026] 127.0.0.1:37220 Accepted
+[Mon Nov  9 06:49:37 2026] 127.0.0.1:37220 [422]: DELETE /backend/public/api.php?route=clients/1
+[Mon Nov  9 06:49:37 2026] 127.0.0.1:37220 Closing
+[Mon Nov  9 06:49:38 2026] 127.0.0.1:37223 Accepted
+[Mon Nov  9 06:49:39 2026] 127.0.0.1:37223 [404]: PUT /backend/public/api.php?route=clients/999
+[Mon Nov  9 06:49:39 2026] 127.0.0.1:37223 Closing
+[Mon Nov  9 07:19:54 2026] 127.0.0.1:11250 Accepted
+[Mon Nov  9 07:19:57 2026] 127.0.0.1:11250 [200]: GET /backend/public/api.php?route=health
+[Mon Nov  9 07:19:57 2026] 127.0.0.1:11250 Closing
+[Mon Nov  9 07:21:16 2026] 127.0.0.1:28843 Accepted
+[Mon Nov  9 07:21:28 2026] 127.0.0.1:28843 [404]: GET /backend/public/api.php?route=reports
+[Mon Nov  9 07:21:28 2026] 127.0.0.1:28843 Closing
+[Mon Nov  9 07:23:45 2026] 127.0.0.1:26498 Accepted
+[Mon Nov  9 07:23:48 2026] 127.0.0.1:26498 [200]: GET /backend/public/api.php?route=reports/overview
+[Mon Nov  9 07:23:48 2026] 127.0.0.1:26498 Closing
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:24006 Accepted
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:24006 [200]: GET /index.html
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:24006 Closing
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:35537 Accepted
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:25213 Accepted
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:15080 Accepted
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:35537 [200]: GET /assets/css/style.css
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:35537 Closing
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:25213 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:15080 [200]: GET /assets/js/api.js
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:25213 Closing
+[Mon Nov  9 08:40:13 2026] 127.0.0.1:15080 Closing
+[Mon Nov  9 08:40:14 2026] 127.0.0.1:7392 Accepted
+[Mon Nov  9 08:40:14 2026] 127.0.0.1:55902 Accepted
+[Mon Nov  9 08:40:14 2026] 127.0.0.1:7392 [200]: GET /assets/js/main.js
+[Mon Nov  9 08:40:14 2026] 127.0.0.1:7392 Closing
+[Mon Nov  9 08:40:14 2026] 127.0.0.1:55902 [200]: GET /assets/js/forms.js
+[Mon Nov  9 08:40:14 2026] 127.0.0.1:55902 Closing
+[Mon Nov  9 08:40:14 2026] 127.0.0.1:9458 Accepted
+[Mon Nov  9 08:40:14 2026] 127.0.0.1:43794 Accepted
+[Mon Nov  9 08:40:18 2026] 127.0.0.1:9458 [200]: GET /backend/public/api.php?route=reports%2Foverview
+[Mon Nov  9 08:40:19 2026] 127.0.0.1:9458 Closing
+[Mon Nov  9 08:40:19 2026] 127.0.0.1:51789 Accepted
+[Mon Nov  9 08:40:33 2026] 127.0.0.1:43794 [404]: GET /backend/public/api.php?route=applications%26search%3D%26status%3D
+[Mon Nov  9 08:40:34 2026] 127.0.0.1:43794 Closing
+[Mon Nov  9 08:40:34 2026] 127.0.0.1:55898 Accepted
+[Mon Nov  9 08:40:34 2026] 127.0.0.1:51789 [200]: GET /assets/icons/favicon-16.png
+[Mon Nov  9 08:40:34 2026] 127.0.0.1:53052 Accepted
+[Mon Nov  9 08:40:34 2026] 127.0.0.1:55898 [200]: GET /assets/icons/favicon-32.png
+[Mon Nov  9 08:40:34 2026] 127.0.0.1:3253 Accepted
+[Mon Nov  9 08:40:34 2026] 127.0.0.1:53052 [200]: GET /assets/icons/favicon.ico
+[Mon Nov  9 08:40:34 2026] 127.0.0.1:51789 Closing
+[Mon Nov  9 08:40:35 2026] 127.0.0.1:3253 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 08:40:35 2026] 127.0.0.1:55898 Closing
+[Mon Nov  9 08:40:35 2026] 127.0.0.1:53052 Closing
+[Mon Nov  9 08:40:35 2026] 127.0.0.1:3253 Closing
+[Mon Nov  9 08:49:24 2026] 127.0.0.1:10287 Accepted
+[Mon Nov  9 08:49:25 2026] 127.0.0.1:10287 [200]: GET /index.html
+[Mon Nov  9 08:49:25 2026] 127.0.0.1:10287 Closing
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:26480 Accepted
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:51331 Accepted
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:51331 [200]: GET /assets/css/style.css
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:26480 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:51331 Closing
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:26480 Closing
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:59303 Accepted
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:59303 [200]: GET /assets/js/api.js
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:59303 Closing
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:59282 Accepted
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:59282 [200]: GET /assets/js/main.js
+[Mon Nov  9 08:49:26 2026] 127.0.0.1:59282 Closing
+[Mon Nov  9 08:49:27 2026] 127.0.0.1:62641 Accepted
+[Mon Nov  9 08:49:27 2026] 127.0.0.1:62641 [200]: GET /assets/js/forms.js
+[Mon Nov  9 08:49:27 2026] 127.0.0.1:62641 Closing
+[Mon Nov  9 08:49:28 2026] 127.0.0.1:1952 Accepted
+[Mon Nov  9 08:49:28 2026] 127.0.0.1:24904 Accepted
+[Mon Nov  9 08:49:41 2026] 127.0.0.1:24904 [200]: GET /backend/public/api.php?route=reports%2Foverview
+[Mon Nov  9 08:49:41 2026] 127.0.0.1:24904 Closing
+[Mon Nov  9 08:49:47 2026] 127.0.0.1:1952 [200]: GET /backend/public/api.php?route=applications
+[Mon Nov  9 08:49:47 2026] 127.0.0.1:1952 Closing
+[Mon Nov  9 08:51:39 2026] 127.0.0.1:25107 Accepted
+[Mon Nov  9 08:51:48 2026] 127.0.0.1:25107 [200]: GET /backend/public/api.php?route=applications
+[Mon Nov  9 08:51:48 2026] 127.0.0.1:25107 Closing
+[Mon Nov  9 08:51:50 2026] 127.0.0.1:25110 Accepted
+[Mon Nov  9 08:51:51 2026] 127.0.0.1:25110 [200]: GET /backend/public/api.php?route=quotes
+[Mon Nov  9 08:51:51 2026] 127.0.0.1:25110 Closing
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:47358 Accepted
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:47358 [200]: GET /clients.html
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:47358 Closing
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:13416 Accepted
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:15713 Accepted
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:32018 Accepted
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:34377 Accepted
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:13416 [200]: GET /assets/css/style.css
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:15713 [200]: GET /assets/js/api.js
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:32018 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:34377 [200]: GET /assets/js/main.js
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:13416 Closing
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:15713 Closing
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:32018 Closing
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:34377 Closing
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:6642 Accepted
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:6642 [200]: GET /assets/js/forms.js
+[Mon Nov  9 08:52:28 2026] 127.0.0.1:6642 Closing
+[Mon Nov  9 08:52:29 2026] 127.0.0.1:1929 Accepted
+[Mon Nov  9 08:52:31 2026] 127.0.0.1:1929 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:52:31 2026] 127.0.0.1:1929 Closing
+[Mon Nov  9 08:52:54 2026] 127.0.0.1:62916 Accepted
+[Mon Nov  9 08:52:56 2026] 127.0.0.1:62916 [201]: POST /backend/public/api.php?route=clients
+[Mon Nov  9 08:52:56 2026] 127.0.0.1:62916 Closing
+[Mon Nov  9 08:52:56 2026] 127.0.0.1:43707 Accepted
+[Mon Nov  9 08:52:57 2026] 127.0.0.1:43707 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:52:57 2026] 127.0.0.1:43707 Closing
+[Mon Nov  9 08:53:31 2026] 127.0.0.1:40747 Accepted
+[Mon Nov  9 08:53:32 2026] 127.0.0.1:40747 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:53:32 2026] 127.0.0.1:40747 Closing
+[Mon Nov  9 08:53:34 2026] 127.0.0.1:33426 Accepted
+[Mon Nov  9 08:53:35 2026] 127.0.0.1:33426 [422]: POST /backend/public/api.php?route=clients
+[Mon Nov  9 08:53:35 2026] 127.0.0.1:33426 Closing
+[Mon Nov  9 08:53:35 2026] 127.0.0.1:55780 Accepted
+[Mon Nov  9 08:53:37 2026] 127.0.0.1:55780 [200]: DELETE /backend/public/api.php?route=clients%2F7
+[Mon Nov  9 08:53:37 2026] 127.0.0.1:55780 Closing
+[Mon Nov  9 08:53:38 2026] 127.0.0.1:47300 Accepted
+[Mon Nov  9 08:53:40 2026] 127.0.0.1:47300 [422]: DELETE /backend/public/api.php?route=clients%2F1
+[Mon Nov  9 08:53:40 2026] 127.0.0.1:47300 Closing
+[Mon Nov  9 08:53:40 2026] 127.0.0.1:21259 Accepted
+[Mon Nov  9 08:53:42 2026] 127.0.0.1:21259 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:53:42 2026] 127.0.0.1:21259 Closing
+[Mon Nov  9 08:54:03 2026] 127.0.0.1:56939 Accepted
+[Mon Nov  9 08:54:05 2026] 127.0.0.1:56939 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:54:05 2026] 127.0.0.1:56939 Closing
+[Mon Nov  9 08:54:27 2026] 127.0.0.1:56962 Accepted
+[Mon Nov  9 08:54:28 2026] 127.0.0.1:56962 [200]: GET /backend/public/api.php?route=health
+[Mon Nov  9 08:54:28 2026] 127.0.0.1:56962 Closing
+[Mon Nov  9 08:54:30 2026] 127.0.0.1:56964 Accepted
+[Mon Nov  9 08:54:32 2026] 127.0.0.1:56964 [200]: GET /backend/public/api.php?route=health
+[Mon Nov  9 08:54:32 2026] 127.0.0.1:56964 Closing
+[Mon Nov  9 08:54:33 2026] 127.0.0.1:56970 Accepted
+[Mon Nov  9 08:54:35 2026] 127.0.0.1:56970 [200]: GET /backend/public/api.php?route=health
+[Mon Nov  9 08:54:35 2026] 127.0.0.1:56970 Closing
+[Mon Nov  9 08:54:36 2026] 127.0.0.1:56976 Accepted
+[Mon Nov  9 08:54:36 2026] 127.0.0.1:56976 [200]: GET /assets/css/style.css
+[Mon Nov  9 08:54:36 2026] 127.0.0.1:56976 Closing
+[Mon Nov  9 08:55:32 2026] 127.0.0.1:1833 Accepted
+[Mon Nov  9 08:55:32 2026] 127.0.0.1:1833 [200]: GET /tmp/hello.php
+[Mon Nov  9 08:55:32 2026] 127.0.0.1:1833 Closing
+[Mon Nov  9 08:57:15 2026] 127.0.0.1:1971 Accepted
+[Mon Nov  9 08:57:15 2026] 127.0.0.1:1971 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:57:15 2026] 127.0.0.1:1971 Closing
+[Mon Nov  9 08:57:15 2026] 127.0.0.1:1972 Accepted
+[Mon Nov  9 08:57:15 2026] 127.0.0.1:1972 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:57:15 2026] 127.0.0.1:1972 Closing
+[Mon Nov  9 08:57:16 2026] 127.0.0.1:1973 Accepted
+[Mon Nov  9 08:57:16 2026] 127.0.0.1:1973 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:57:16 2026] 127.0.0.1:1973 Closing
+[Mon Nov  9 08:57:16 2026] 127.0.0.1:1974 Accepted
+[Mon Nov  9 08:57:16 2026] 127.0.0.1:1974 [200]: GET /backend/public/api.php?route=reports/overview
+[Mon Nov  9 08:57:16 2026] 127.0.0.1:1974 Closing
+[Mon Nov  9 08:57:36 2026] 127.0.0.1:51741 Accepted
+[Mon Nov  9 08:57:36 2026] 127.0.0.1:51741 [200]: GET /clients.html
+[Mon Nov  9 08:57:36 2026] 127.0.0.1:51741 Closing
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:9148 Accepted
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:9148 [200]: GET /assets/css/style.css
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:9148 Closing
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:1615 Accepted
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:10655 Accepted
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:1615 [200]: GET /assets/js/api.js
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:10655 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:1615 Closing
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:10655 Closing
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:62949 Accepted
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:48100 Accepted
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:62949 [200]: GET /assets/js/main.js
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:48100 [200]: GET /assets/js/forms.js
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:62949 Closing
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:48100 Closing
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:62981 Accepted
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:62981 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:57:37 2026] 127.0.0.1:62981 Closing
+[Mon Nov  9 08:57:55 2026] 127.0.0.1:60143 Accepted
+[Mon Nov  9 08:57:56 2026] 127.0.0.1:60143 [201]: POST /backend/public/api.php?route=clients
+[Mon Nov  9 08:57:56 2026] 127.0.0.1:60143 Closing
+[Mon Nov  9 08:58:03 2026] 127.0.0.1:19392 Accepted
+[Mon Nov  9 08:58:03 2026] 127.0.0.1:19392 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:58:03 2026] 127.0.0.1:19392 Closing
+[Mon Nov  9 08:58:03 2026] 127.0.0.1:64785 Accepted
+[Mon Nov  9 08:58:03 2026] 127.0.0.1:64785 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:58:03 2026] 127.0.0.1:64785 Closing
+[Mon Nov  9 08:58:06 2026] 127.0.0.1:18370 Accepted
+[Mon Nov  9 08:58:06 2026] 127.0.0.1:18370 [200]: PUT /backend/public/api.php?route=clients%2F6
+[Mon Nov  9 08:58:06 2026] 127.0.0.1:18370 Closing
+[Mon Nov  9 08:58:07 2026] 127.0.0.1:13814 Accepted
+[Mon Nov  9 08:58:07 2026] 127.0.0.1:13814 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:58:07 2026] 127.0.0.1:13814 Closing
+[Mon Nov  9 08:58:07 2026] 127.0.0.1:54794 Accepted
+[Mon Nov  9 08:58:08 2026] 127.0.0.1:54794 [200]: DELETE /backend/public/api.php?route=clients%2F7
+[Mon Nov  9 08:58:08 2026] 127.0.0.1:54794 Closing
+[Mon Nov  9 08:58:08 2026] 127.0.0.1:63449 Accepted
+[Mon Nov  9 08:58:08 2026] 127.0.0.1:63449 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 08:58:08 2026] 127.0.0.1:63449 Closing
+[Mon Nov  9 08:58:09 2026] 127.0.0.1:22751 Accepted
+[Mon Nov  9 08:58:09 2026] 127.0.0.1:22751 [422]: DELETE /backend/public/api.php?route=clients%2F1
+[Mon Nov  9 08:58:09 2026] 127.0.0.1:22751 Closing
+[Mon Nov  9 08:59:27 2026] 127.0.0.1:17775 Accepted
+[Mon Nov  9 08:59:28 2026] 127.0.0.1:17775 [200]: GET /backend/public/api.php?route=health
+[Mon Nov  9 08:59:28 2026] 127.0.0.1:17775 Closing
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:26137 Accepted
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:26137 [200]: GET /applications.html
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:26137 Closing
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:59688 Accepted
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:13924 Accepted
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:13924 [200]: GET /assets/css/style.css
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:59688 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:13924 Closing
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:59688 Closing
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:40932 Accepted
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:40932 [200]: GET /assets/js/api.js
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:40932 Closing
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:64052 Accepted
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:64052 [200]: GET /assets/js/main.js
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:64052 Closing
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:23703 Accepted
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:23703 [200]: GET /assets/js/forms.js
+[Mon Nov  9 08:59:32 2026] 127.0.0.1:23703 Closing
+[Mon Nov  9 08:59:33 2026] 127.0.0.1:26829 Accepted
+[Mon Nov  9 08:59:33 2026] 127.0.0.1:26829 [200]: GET /backend/public/api.php?route=applications
+[Mon Nov  9 08:59:33 2026] 127.0.0.1:26829 Closing
+[Mon Nov  9 08:59:57 2026] 127.0.0.1:28507 Accepted
+[Mon Nov  9 08:59:57 2026] 127.0.0.1:28507 [200]: PUT /backend/public/api.php?route=applications%2F2
+[Mon Nov  9 08:59:57 2026] 127.0.0.1:28507 Closing
+[Mon Nov  9 09:00:24 2026] 127.0.0.1:55880 Accepted
+[Mon Nov  9 09:00:24 2026] 127.0.0.1:55880 [201]: POST /backend/public/api.php?route=clients
+[Mon Nov  9 09:00:24 2026] 127.0.0.1:55880 Closing
+[Mon Nov  9 09:00:24 2026] 127.0.0.1:8415 Accepted
+[Mon Nov  9 09:00:24 2026] 127.0.0.1:8415 [201]: POST /backend/public/api.php?route=applications
+[Mon Nov  9 09:00:24 2026] 127.0.0.1:8415 Closing
+[Mon Nov  9 09:00:25 2026] 127.0.0.1:19136 Accepted
+[Mon Nov  9 09:00:25 2026] 127.0.0.1:19136 [200]: GET /backend/public/api.php?route=applications
+[Mon Nov  9 09:00:25 2026] 127.0.0.1:19136 Closing
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:4305 Accepted
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:4305 [200]: GET /calculator.html
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:4305 Closing
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:38724 Accepted
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:38724 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:38724 Closing
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:37956 Accepted
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:20287 Accepted
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:37956 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:20287 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:37956 Closing
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:20287 Closing
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:30357 Accepted
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:30357 [200]: GET /assets/js/calculator.js
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:30357 Closing
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:46158 Accepted
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:16384 Accepted
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:46158 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:16384 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:46158 Closing
+[Mon Nov  9 09:00:45 2026] 127.0.0.1:16384 Closing
+[Mon Nov  9 09:01:23 2026] 127.0.0.1:9990 Accepted
+[Mon Nov  9 09:01:23 2026] 127.0.0.1:9990 [201]: POST /backend/public/api.php?route=quotes
+[Mon Nov  9 09:01:23 2026] 127.0.0.1:9990 Closing
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:26512 Accepted
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:26512 [200]: GET /calculator.html
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:26512 Closing
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:6654 Accepted
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:14908 Accepted
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:16947 Accepted
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:47403 Accepted
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:47403 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:16947 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:6654 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:14908 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:47403 Closing
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:16947 Closing
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:6654 Closing
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:14908 Closing
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:29990 Accepted
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:29990 [200]: GET /assets/js/calculator.js
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:29990 Closing
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:9001 Accepted
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:9001 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:9001 Closing
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:17069 Accepted
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:17069 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 09:02:34 2026] 127.0.0.1:17069 Closing
+[Mon Nov  9 09:02:56 2026] 127.0.0.1:48677 Accepted
+[Mon Nov  9 09:02:56 2026] 127.0.0.1:48677 [201]: POST /backend/public/api.php?route=quotes
+[Mon Nov  9 09:02:56 2026] 127.0.0.1:48677 Closing
+[Mon Nov  9 09:02:56 2026] 127.0.0.1:55570 Accepted
+[Mon Nov  9 09:02:56 2026] 127.0.0.1:55570 [200]: GET /backend/public/api.php?route=quotes
+[Mon Nov  9 09:02:56 2026] 127.0.0.1:55570 Closing
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:13653 Accepted
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:13653 [200]: GET /reports.html
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:13653 Closing
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:2265 Accepted
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:2265 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:2265 Closing
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:47397 Accepted
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:47397 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:47397 Closing
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:12900 Accepted
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:12900 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:12900 Closing
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:25759 Accepted
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:25759 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:25759 Closing
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:7540 Accepted
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:7540 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:7540 Closing
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:40888 Accepted
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:40888 [200]: GET /backend/public/api.php?route=reports%2Foverview
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:40888 Closing
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:53057 Accepted
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:53057 [200]: GET /backend/public/api.php?route=quotes
+[Mon Nov  9 09:03:15 2026] 127.0.0.1:53057 Closing
+[Mon Nov  9 09:03:38 2026] 127.0.0.1:27329 Accepted
+[Mon Nov  9 09:03:38 2026] 127.0.0.1:27329 [200]: PUT /backend/public/api.php?route=quotes%2F10
+[Mon Nov  9 09:03:38 2026] 127.0.0.1:27329 Closing
+[Mon Nov  9 09:03:38 2026] 127.0.0.1:59328 Accepted
+[Mon Nov  9 09:03:38 2026] 127.0.0.1:59328 [200]: GET /backend/public/api.php?route=reports%2Foverview
+[Mon Nov  9 09:03:38 2026] 127.0.0.1:59328 Closing
+[Mon Nov  9 09:03:48 2026] 127.0.0.1:4334 Accepted
+[Mon Nov  9 09:03:48 2026] 127.0.0.1:4334 [200]: DELETE /backend/public/api.php?route=quotes%2F9
+[Mon Nov  9 09:03:48 2026] 127.0.0.1:4334 Closing
+[Mon Nov  9 09:03:48 2026] 127.0.0.1:4135 Accepted
+[Mon Nov  9 09:03:48 2026] 127.0.0.1:32812 Accepted
+[Mon Nov  9 09:03:48 2026] 127.0.0.1:4135 [200]: GET /backend/public/api.php?route=quotes
+[Mon Nov  9 09:03:48 2026] 127.0.0.1:4135 Closing
+[Mon Nov  9 09:03:48 2026] 127.0.0.1:32812 [200]: GET /backend/public/api.php?route=reports%2Foverview
+[Mon Nov  9 09:03:48 2026] 127.0.0.1:32812 Closing
+[Mon Nov  9 09:04:20 2026] 127.0.0.1:27004 Accepted
+[Mon Nov  9 09:04:20 2026] 127.0.0.1:27004 [200]: GET /backend/public/api.php?route=reports%2Foverview
+[Mon Nov  9 09:04:20 2026] 127.0.0.1:27004 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:26143 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:26143 [200]: GET /services.html
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:26143 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:4717 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:12436 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:4717 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:4717 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:12436 [200]: GET /images/borehole1.jpg
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:44445 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:44445 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:44445 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:12436 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:46290 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:46290 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:46290 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:36241 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:5193 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:1977 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:1977 [200]: GET /images/water%20pump.jpg
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:5193 [200]: GET /images/tank.jpg
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:36241 [200]: GET /images/plumbing.jpg
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:1977 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:5193 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:36241 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:41874 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:41874 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:41874 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:1466 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:1466 [200]: GET /images/about.jpg
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:39637 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:39637 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:39637 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:1466 Closing
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:1904 Accepted
+[Mon Nov  9 09:04:38 2026] 127.0.0.1:1904 [200]: GET /images/gh.jpg
+[Mon Nov  9 09:04:39 2026] 127.0.0.1:1904 Closing
+[Mon Nov  9 09:04:39 2026] 127.0.0.1:1170 Accepted
+[Mon Nov  9 09:04:39 2026] 127.0.0.1:1170 [200]: GET /backend/public/api.php?route=services
+[Mon Nov  9 09:04:39 2026] 127.0.0.1:1170 Closing
+[Mon Nov  9 09:05:02 2026] 127.0.0.1:40637 Accepted
+[Mon Nov  9 09:05:02 2026] 127.0.0.1:40637 [200]: GET /backend/public/api.php?route=services
+[Mon Nov  9 09:05:02 2026] 127.0.0.1:40637 Closing
+[Mon Nov  9 09:05:03 2026] 127.0.0.1:50566 Accepted
+[Mon Nov  9 09:05:04 2026] 127.0.0.1:50566 [200]: PUT /backend/public/api.php?route=services%2F6
+[Mon Nov  9 09:05:04 2026] 127.0.0.1:50566 Closing
+[Mon Nov  9 09:05:04 2026] 127.0.0.1:40642 Accepted
+[Mon Nov  9 09:05:04 2026] 127.0.0.1:40642 [200]: GET /backend/public/api.php?route=services
+[Mon Nov  9 09:05:04 2026] 127.0.0.1:40642 Closing
+[Mon Nov  9 09:05:05 2026] 127.0.0.1:3553 Accepted
+[Mon Nov  9 09:05:05 2026] 127.0.0.1:3553 [200]: GET /backend/public/api.php?route=services
+[Mon Nov  9 09:05:05 2026] 127.0.0.1:3553 Closing
+[Mon Nov  9 09:05:05 2026] 127.0.0.1:49173 Accepted
+[Mon Nov  9 09:05:06 2026] 127.0.0.1:49173 [200]: PUT /backend/public/api.php?route=services%2F6
+[Mon Nov  9 09:05:06 2026] 127.0.0.1:49173 Closing
+[Mon Nov  9 09:05:08 2026] 127.0.0.1:2741 Accepted
+[Mon Nov  9 09:05:08 2026] 127.0.0.1:2741 [200]: GET /backend/public/api.php?route=services
+[Mon Nov  9 09:05:08 2026] 127.0.0.1:2741 Closing
+[Mon Nov  9 09:06:14 2026] 127.0.0.1:54684 Accepted
+[Mon Nov  9 09:06:14 2026] 127.0.0.1:49897 Accepted
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:54684 [200]: GET /index.html
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:54684 Closing
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:49897 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:49897 Closing
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:15324 Accepted
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:15324 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:15324 Closing
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:48600 Accepted
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:48600 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:48600 Closing
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:21950 Accepted
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:9962 Accepted
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:49744 Accepted
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:21950 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:9962 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:49744 [200]: GET /site.webmanifest
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:21950 Closing
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:9962 Closing
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:49744 Closing
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:19336 Accepted
+[Mon Nov  9 09:06:15 2026] 127.0.0.1:19336 [200]: GET /images/borehole.jpg
+[Mon Nov  9 09:06:16 2026] 127.0.0.1:19336 Closing
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:43901 Accepted
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:40552 Accepted
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:43901 [200]: GET /backend/public/api.php?route=reports%2Foverview
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:43901 Closing
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:40552 [200]: GET /backend/public/api.php?route=applications
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:40552 Closing
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:44712 Accepted
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:35108 Accepted
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:44712 [200]: GET /assets/icons/icon-192.png
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:35108 [200]: GET /assets/icons/favicon.ico
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:44712 Closing
+[Mon Nov  9 09:06:20 2026] 127.0.0.1:35108 Closing
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:20346 Accepted
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:31581 Accepted
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:20346 [200]: GET /clients.html
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:20346 Closing
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:31581 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:31581 Closing
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:36558 Accepted
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:62860 Accepted
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:33695 Accepted
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:64557 Accepted
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:65217 Accepted
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:36558 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:62860 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:33695 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:64557 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:65217 [200]: GET /site.webmanifest
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:36558 Closing
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:62860 Closing
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:33695 Closing
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:64557 Closing
+[Mon Nov  9 09:06:43 2026] 127.0.0.1:65217 Closing
+[Mon Nov  9 09:06:44 2026] 127.0.0.1:52570 Accepted
+[Mon Nov  9 09:06:44 2026] 127.0.0.1:52570 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 09:06:44 2026] 127.0.0.1:52570 Closing
+[Mon Nov  9 09:06:44 2026] 127.0.0.1:23676 Accepted
+[Mon Nov  9 09:06:44 2026] 127.0.0.1:23676 [200]: GET /assets/icons/icon-192.png
+[Mon Nov  9 09:06:44 2026] 127.0.0.1:23676 Closing
+[Mon Nov  9 09:06:45 2026] 127.0.0.1:29721 Accepted
+[Mon Nov  9 09:06:45 2026] 127.0.0.1:29721 [200]: GET /assets/icons/favicon.ico
+[Mon Nov  9 09:06:45 2026] 127.0.0.1:29721 Closing
+[Mon Nov  9 09:07:00 2026] 127.0.0.1:42039 Accepted
+[Mon Nov  9 09:07:00 2026] 127.0.0.1:50331 Accepted
+[Mon Nov  9 09:07:01 2026] 127.0.0.1:42039 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Nov  9 09:07:01 2026] 127.0.0.1:42039 Closing
+[Mon Nov  9 09:07:01 2026] 127.0.0.1:50331 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Nov  9 09:07:01 2026] 127.0.0.1:50331 Closing
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:47347 Accepted
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:47347 [200]: GET /applications.html
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:47347 Closing
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:15320 Accepted
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:22650 Accepted
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:23861 Accepted
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:62977 Accepted
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:3041 Accepted
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:34735 Accepted
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:15320 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:22650 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:15320 Closing
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:23861 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:62977 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:3041 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:34735 [200]: GET /site.webmanifest
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:22650 Closing
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:23861 Closing
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:62977 Closing
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:3041 Closing
+[Mon Nov  9 09:07:08 2026] 127.0.0.1:34735 Closing
+[Mon Nov  9 09:07:17 2026] 127.0.0.1:20409 Accepted
+[Mon Nov  9 09:07:17 2026] 127.0.0.1:32461 Accepted
+[Mon Nov  9 09:07:17 2026] 127.0.0.1:47122 Accepted
+[Mon Nov  9 09:07:17 2026] 127.0.0.1:20409 [200]: GET /backend/public/api.php?route=applications
+[Mon Nov  9 09:07:17 2026] 127.0.0.1:20409 Closing
+[Mon Nov  9 09:07:17 2026] 127.0.0.1:32461 [200]: GET /assets/icons/icon-192.png
+[Mon Nov  9 09:07:17 2026] 127.0.0.1:47122 [200]: GET /assets/icons/favicon.ico
+[Mon Nov  9 09:07:17 2026] 127.0.0.1:32461 Closing
+[Mon Nov  9 09:07:17 2026] 127.0.0.1:47122 Closing
+[Mon Nov  9 09:07:39 2026] 127.0.0.1:42242 Accepted
+[Mon Nov  9 09:07:39 2026] 127.0.0.1:13276 Accepted
+[Mon Nov  9 09:07:40 2026] 127.0.0.1:42242 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Nov  9 09:07:40 2026] 127.0.0.1:42242 Closing
+[Mon Nov  9 09:07:40 2026] 127.0.0.1:13276 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Nov  9 09:07:40 2026] 127.0.0.1:13276 Closing
+[Mon Nov  9 09:07:46 2026] 127.0.0.1:37166 Accepted
+[Mon Nov  9 09:07:46 2026] 127.0.0.1:37166 [200]: GET /services.html
+[Mon Nov  9 09:07:46 2026] 127.0.0.1:37166 Closing
+[Mon Nov  9 09:07:46 2026] 127.0.0.1:20427 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:46901 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:36145 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:52879 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:64730 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:56424 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:20427 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:52879 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:36145 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:20427 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:46901 [200]: GET /images/borehole1.jpg
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:52879 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:64730 [200]: GET /images/water%20pump.jpg
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:36145 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:47401 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:56424 [200]: GET /images/tank.jpg
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:47401 [200]: GET /images/plumbing.jpg
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:46901 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:64730 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:53025 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:56424 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:53025 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:50613 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:47401 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:53025 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:50613 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:50613 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:31618 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:31618 [200]: GET /site.webmanifest
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:31618 Closing
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:37902 Accepted
+[Mon Nov  9 09:07:47 2026] 127.0.0.1:37902 [200]: GET /images/about.jpg
+[Mon Nov  9 09:07:48 2026] 127.0.0.1:56476 Accepted
+[Mon Nov  9 09:07:48 2026] 127.0.0.1:56476 [200]: GET /images/gh.jpg
+[Mon Nov  9 09:07:48 2026] 127.0.0.1:56476 Closing
+[Mon Nov  9 09:07:48 2026] 127.0.0.1:37902 Closing
+[Mon Nov  9 09:07:50 2026] 127.0.0.1:14720 Accepted
+[Mon Nov  9 09:07:50 2026] 127.0.0.1:14720 [200]: GET /backend/public/api.php?route=services
+[Mon Nov  9 09:07:50 2026] 127.0.0.1:14720 Closing
+[Mon Nov  9 09:07:50 2026] 127.0.0.1:40967 Accepted
+[Mon Nov  9 09:07:50 2026] 127.0.0.1:40967 [200]: GET /assets/icons/icon-192.png
+[Mon Nov  9 09:07:50 2026] 127.0.0.1:40967 Closing
+[Mon Nov  9 09:07:50 2026] 127.0.0.1:25837 Accepted
+[Mon Nov  9 09:07:50 2026] 127.0.0.1:25837 [200]: GET /assets/icons/favicon.ico
+[Mon Nov  9 09:07:50 2026] 127.0.0.1:25837 Closing
+[Mon Nov  9 09:08:11 2026] 127.0.0.1:35236 Accepted
+[Mon Nov  9 09:08:11 2026] 127.0.0.1:59474 Accepted
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:35236 [200]: GET /calculator.html
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:35236 Closing
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:59474 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:59474 Closing
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:37510 Accepted
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:51542 Accepted
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:18999 Accepted
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:45892 Accepted
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:6013 Accepted
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:37510 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:51542 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:18999 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:45892 [200]: GET /assets/js/calculator.js
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:6013 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:37510 Closing
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:51542 Closing
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:18999 Closing
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:45892 Closing
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:6013 Closing
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:37419 Accepted
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:37419 [200]: GET /site.webmanifest
+[Mon Nov  9 09:08:12 2026] 127.0.0.1:37419 Closing
+[Mon Nov  9 09:08:14 2026] 127.0.0.1:56687 Accepted
+[Mon Nov  9 09:08:14 2026] 127.0.0.1:11127 Accepted
+[Mon Nov  9 09:08:14 2026] 127.0.0.1:34137 Accepted
+[Mon Nov  9 09:08:14 2026] 127.0.0.1:56687 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 09:08:14 2026] 127.0.0.1:56687 Closing
+[Mon Nov  9 09:08:14 2026] 127.0.0.1:11127 [200]: GET /assets/icons/favicon.ico
+[Mon Nov  9 09:08:14 2026] 127.0.0.1:34137 [200]: GET /assets/icons/icon-192.png
+[Mon Nov  9 09:08:14 2026] 127.0.0.1:11127 Closing
+[Mon Nov  9 09:08:14 2026] 127.0.0.1:34137 Closing
+[Mon Nov  9 09:08:29 2026] 127.0.0.1:32905 Accepted
+[Mon Nov  9 09:08:29 2026] 127.0.0.1:6910 Accepted
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:32905 [200]: GET /reports.html
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:32905 Closing
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:6910 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:6910 Closing
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:39484 Accepted
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:54162 Accepted
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:1756 Accepted
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:53914 Accepted
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:35158 Accepted
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:39484 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:39484 Closing
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:54162 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:54162 Closing
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:1756 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:53914 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:35158 [200]: GET /site.webmanifest
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:1756 Closing
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:53914 Closing
+[Mon Nov  9 09:08:30 2026] 127.0.0.1:35158 Closing
+[Mon Nov  9 09:08:31 2026] 127.0.0.1:61849 Accepted
+[Mon Nov  9 09:08:31 2026] 127.0.0.1:30631 Accepted
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:61849 [200]: GET /backend/public/api.php?route=reports%2Foverview
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:61849 Closing
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:30631 [200]: GET /backend/public/api.php?route=quotes
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:30631 Closing
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:44608 Accepted
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:44608 [200]: GET /assets/icons/icon-192.png
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:44608 Closing
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:44510 Accepted
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:44510 [200]: GET /assets/icons/favicon.ico
+[Mon Nov  9 09:08:32 2026] 127.0.0.1:44510 Closing
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:1503 Accepted
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:42462 Accepted
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:1503 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:1503 Closing
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:42462 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:42462 Closing
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:37401 Accepted
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:37401 [200]: GET /index.html
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:37401 Closing
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:60950 Accepted
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:7547 Accepted
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:14175 Accepted
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:35684 Accepted
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:32120 Accepted
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:60252 Accepted
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:60950 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:7547 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:14175 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:35684 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:32120 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:60950 Closing
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:60252 [200]: GET /site.webmanifest
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:7547 Closing
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:14175 Closing
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:35684 Closing
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:32120 Closing
+[Mon Nov  9 09:08:46 2026] 127.0.0.1:60252 Closing
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:54438 Accepted
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:40545 Accepted
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:54438 [200]: GET /backend/public/api.php?route=reports%2Foverview
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:54438 Closing
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:40545 [200]: GET /backend/public/api.php?route=applications
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:40545 Closing
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:31706 Accepted
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:31706 [200]: GET /assets/icons/favicon.ico
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:31706 Closing
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:20432 Accepted
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:20432 [200]: GET /assets/icons/icon-192.png
+[Mon Nov  9 09:08:48 2026] 127.0.0.1:20432 Closing
+[Mon Nov  9 09:09:05 2026] 127.0.0.1:54479 Accepted
+[Mon Nov  9 09:09:05 2026] 127.0.0.1:29601 Accepted
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:29601 [200]: GET /calculator.html
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:29601 Closing
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:54479 [200]: GET /assets/css/style.css
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:51332 Accepted
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:54479 Closing
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:57709 Accepted
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:21178 Accepted
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:37848 Accepted
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:58169 Accepted
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:51332 [200]: GET /assets/js/api.js
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:57709 [200]: GET /assets/icons/favicon.svg
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:21178 [200]: GET /assets/js/main.js
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:37848 [200]: GET /assets/js/calculator.js
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:51332 Closing
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:58169 [200]: GET /assets/js/forms.js
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:57709 Closing
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:21178 Closing
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:37848 Closing
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:58169 Closing
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:42650 Accepted
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:42650 [200]: GET /site.webmanifest
+[Mon Nov  9 09:09:06 2026] 127.0.0.1:42650 Closing
+[Mon Nov  9 09:09:07 2026] 127.0.0.1:55032 Accepted
+[Mon Nov  9 09:09:07 2026] 127.0.0.1:55032 [200]: GET /backend/public/api.php?route=clients
+[Mon Nov  9 09:09:07 2026] 127.0.0.1:55032 Closing
+[Mon Nov  9 09:09:07 2026] 127.0.0.1:38331 Accepted
+[Mon Nov  9 09:09:07 2026] 127.0.0.1:60597 Accepted
+[Mon Nov  9 09:09:07 2026] 127.0.0.1:38331 [200]: GET /assets/icons/favicon.ico
+[Mon Nov  9 09:09:07 2026] 127.0.0.1:60597 [200]: GET /assets/icons/icon-192.png
+[Mon Nov  9 09:09:07 2026] 127.0.0.1:38331 Closing
+[Mon Nov  9 09:09:07 2026] 127.0.0.1:60597 Closing

@@ -5,7 +5,14 @@ stored in `backend/storage/aquaflow.sqlite`.
 
 ## Run locally
 
-From the project root, run:
+From the project root, run the launcher (enables the SQLite PDO driver for the
+session without admin rights):
+
+```powershell
+.\serve.cmd
+```
+
+Or, if `pdo_sqlite` is already enabled in your php.ini:
 
 ```powershell
 php -S localhost:8000
@@ -25,9 +32,12 @@ http://localhost:8000/backend/public/api.php?route=health
 | GET, POST | `clients` | List or create clients. |
 | GET | `services` | List the seeded service catalogue. |
 | GET, POST | `applications` | List or create applications. |
+| PUT | `applications/{id}` | Update application workflow status / notes. |
 | POST | `quotes/calculate` | Calculate a non-persistent quote. |
-| POST | `quotes` | Calculate and save a quote. |
-| GET | `reports/overview` | Fetch high-level business metrics. |
+| GET, POST | `quotes` | List saved quotations or calculate and save a new one. |
+| PUT | `quotes/{id}` | Update quotation status (Draft / Sent / Accepted / Expired), notes or validity. |
+| DELETE | `quotes/{id}` | Remove a quotation. |
+| GET | `reports/overview` | Fetch high-level business metrics, quote pipeline and six-month revenue. |
 
 Every route is sent through `api.php?route=<route>`. Requests with a body must use
 JSON and `Content-Type: application/json`.

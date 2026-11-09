@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function buttonState(button, loading) {
     if (!button) return;
     button.disabled = loading;
-    button.dataset.label ||= button.textContent;
+    if (loading) button.dataset.label = button.textContent;
     button.textContent = loading ? 'Saving...' : button.dataset.label;
   }
 
@@ -17,27 +17,72 @@ document.addEventListener('DOMContentLoaded', () => {
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;',
   }[character]));
   const dateLabel = value => value ? new Intl.DateTimeFormat('en-KE', { month: 'short', year: 'numeric' }).format(new Date(`${String(value).replace(' ', 'T')}Z`)) : 'Today';
+  const money = value => new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', maximumFractionDigits: 0 }).format(Number(value || 0));
+  const quoteBadge = status => ({ Draft: 'draft', Sent: 'info', Accepted: '', Expired: 'danger' }[status] ?? 'draft');
+
+  function renderClientMix(clients) {
+    const rows = document.getElementById('client-mix-rows');
+    if (!rows) return;
+    const total = clients.length || 1;
+    rows.innerHTML = ['Domestic', 'Commercial', 'Industrial'].map(category => {
+      const count = clients.filter(client => client.category === category).length;
+      const percent = Math.round((count / total) * 100);
+      return `<div class="progress-row"><span>${category}<b>${percent}%</b></span><div class="progress"><i style="width:${percent}%"></i></div></div>`;
+    }).join('');
+  }
+
+  function renderBars(container, entries) {
+    if (!container) return;
+    const max = Math.max(1, ...entries.map(entry => Math.max(entry.current || 0, entry.pale || 0)));
+    container.innerHTML = entries.map(entry => {
+      const current = Math.round(((entry.current || 0) / max) * 92);
+      const pale = entry.pale === undefined ? null : Math.round((entry.pale / max) * 92);
+      return `<div class="bar-set">${pale === null ? '' : `<i class="bar" style="height:${Math.max(pale, 2)}%"></i>`}<i class="bar current" style="height:${Math.max(current, 2)}%"></i><label>${escapeHtml(entry.label)}</label></div>`;
+    }).join('');
+  }
+
+  async function refreshQuotes() {
+    const body = document.querySelector('#quotes-table tbody');
+    if (!body) return;
+    try {
+      const quotes = await api.quotes();
+      body.innerHTML = quotes.length ? quotes.map(quote => `<tr>
+        <td class="primary">${escapeHtml(quote.reference)}</td>
+        <td>${escapeHtml(quote.client_name || 'Walk-in client')}</td>
+        <td>${escapeHtml(quote.category)}</td>
+        <td class="primary">${money(quote.total)}</td>
+        <td><select class="filter-select" data-quote-status="${quote.id}" aria-label="Status for ${escapeHtml(quote.reference)}">
+          ${['Draft', 'Sent', 'Accepted', 'Expired'].map(status => `<option${status === quote.status ? ' selected' : ''}>${status}</option>`).join('')}
+        </select></td>
+        <td>${escapeHtml(String(quote.created_at).slice(0, 10))}</td>
+        <td><button class="link" type="button" data-delete-quote="${quote.id}">Remove</button></td>
+      </tr>`).join('') : '<tr><td colspan="7">No quotations yet. Build one in the quote builder.</td></tr>';
+    } catch (error) { notify(error.message); }
+  }
 
   async function refreshClients() {
     const list = document.getElementById('client-list');
-    if (!list) return;
+    const quoteClient = document.getElementById('quote-client');
+    const quoteOptions = document.getElementById('quote-client-options');
+    if (!list && !quoteOptions) return;
     try {
       const clients = await api.clients();
-      const quoteClient = document.getElementById('quote-client');
-      const quoteOptions = document.getElementById('quote-client-options');
       if (quoteClient && quoteOptions) {
         quoteClient.dataset.clients = JSON.stringify(clients.map(client => ({ id: client.id, name: client.name })));
         quoteOptions.innerHTML = clients.map(client => `<option value="${escapeHtml(client.name)}">${escapeHtml(client.category)} · ${escapeHtml(client.telephone)}</option>`).join('');
       }
+      if (!list) return;
       list.innerHTML = clients.length ? clients.map(client => {
         const initials = client.name.split(/\s+/).map(part => part[0]).slice(0, 2).join('').toUpperCase();
         const projects = Number(client.application_count) || 0;
-        return `<article class="client-card" data-client-id="${client.id}">
+        return `<article class="client-card" data-client-id="${client.id}" data-category="${escapeHtml(client.category)}">
           <span class="mini-avatar">${escapeHtml(initials)}</span>
           <div><h3>${escapeHtml(client.name)}</h3><p>${escapeHtml(client.category)} · ${escapeHtml(client.address)} · ${escapeHtml(client.telephone)}</p></div>
           <div class="client-meta"><b>${projects ? `${projects} active project${projects === 1 ? '' : 's'}` : 'No active projects'}</b>Client since ${dateLabel(client.created_at)}<span><button class="link" type="button" data-edit-client="${client.id}">Edit</button> <button class="link" type="button" data-delete-client="${client.id}">Remove</button></span></div>
         </article>`;
       }).join('') : '<div class="empty-state"><h3>No clients yet</h3><p>Add your first client below to begin.</p></div>';
+      renderClientMix(clients);
+      document.querySelector('[data-filter-table="#client-list"]')?.dispatchEvent(new Event('input'));
     } catch (error) { notify(error.message); }
   }
 
@@ -51,8 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <td>${escapeHtml(application.service_name || 'Service assessment')}</td><td>${escapeHtml(application.location)}</td>
         <td><select class="filter-select" data-application-status="${application.id}" aria-label="Status for ${escapeHtml(application.reference)}">
           ${['Draft', 'Review', 'Survey booked', 'Approved', 'Completed'].map(status => `<option${status === application.status ? ' selected' : ''}>${status}</option>`).join('')}
-        </select></td><td><span class="link">${escapeHtml(application.created_at.slice(0, 10))}</span></td>
+        </select></td><td>${escapeHtml(application.created_at.slice(0, 10))}</td>
       </tr>`).join('') : '<tr><td colspan="6">No applications yet. Register one below.</td></tr>';
+      document.querySelector('[data-filter-table="#applications-table"]')?.dispatchEvent(new Event('input'));
     } catch (error) { notify(error.message); }
   }
 
@@ -66,12 +112,22 @@ document.addEventListener('DOMContentLoaded', () => {
         ? report.services.map(item => `<div class="rate-item"><span>${escapeHtml(item.service)}</span><b>${money(item.revenue)}</b></div>`).join('')
         : '<p class="panel-subtitle">No saved quotations yet.</p>';
       const feeBody = document.querySelector('#fees tbody');
-      if (feeBody) feeBody.innerHTML = `<tr><td class="primary">Survey fees</td><td colspan="3">From saved quotations</td><td class="primary">${money(report.fees.survey_fees)}</td></tr>
-        <tr><td class="primary">Authority fees</td><td colspan="3">From saved quotations</td><td class="primary">${money(report.fees.authority_fees)}</td></tr>
-        <tr><td class="primary">16% tax</td><td colspan="3">From saved quotations</td><td class="primary">${money(report.fees.tax)}</td></tr>
-        <tr><td class="primary">Plumbing charged</td><td colspan="3">From saved quotations</td><td class="primary">${money(report.fees.plumbing_total)}</td></tr>`;
+      if (feeBody) feeBody.innerHTML = `<tr><td class="primary">Survey fees</td><td class="primary">${money(report.fees.survey_fees)}</td></tr>
+        <tr><td class="primary">Authority fees</td><td class="primary">${money(report.fees.authority_fees)}</td></tr>
+        <tr><td class="primary">16% tax</td><td class="primary">${money(report.fees.tax)}</td></tr>
+        <tr><td class="primary">Plumbing charged</td><td class="primary">${money(report.fees.plumbing_total)}</td></tr>`;
       const activity = document.querySelector('#activity .rate-list');
       if (activity) activity.innerHTML = `<div class="rate-item"><span>Clients</span><b>${report.summary.clients}</b></div><div class="rate-item"><span>Active projects</span><b>${report.summary.active_projects}</b></div><div class="rate-item"><span>Pending applications</span><b>${report.summary.pending_applications}</b></div><div class="rate-item"><span>Accepted revenue</span><b>${money(report.summary.collected_revenue)}</b></div>${(report.client_totals || []).slice(0, 3).map(client => `<div class="rate-item"><span>${escapeHtml(client.name)} total quoted</span><b>${money(client.total)}</b></div>`).join('')}`;
+      renderBars(document.getElementById('revenue-chart'), (report.services || []).map(item => ({ label: item.service, current: item.revenue })));
+      const pipeline = document.getElementById('quote-pipeline');
+      if (pipeline) {
+        const order = ['Draft', 'Sent', 'Accepted', 'Expired'];
+        const byStatus = Object.fromEntries((report.quote_status || []).map(item => [item.status, item]));
+        pipeline.innerHTML = order.map(status => {
+          const item = byStatus[status] || { count: 0, value: 0 };
+          return `<div class="rate-item"><span><span class="badge ${quoteBadge(status)}">${status}</span></span><b>${item.count} · ${money(item.value)}</b></div>`;
+        }).join('');
+      }
     } catch (error) { notify(error.message); }
   }
 
@@ -95,9 +151,23 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('dashboard-pending-applications').innerHTML = `${report.summary.pending_applications} <small class="stat-change">Live</small>`;
       document.getElementById('dashboard-revenue').innerHTML = `${money(report.summary.collected_revenue)} <small class="stat-change">Accepted</small>`;
       document.getElementById('dashboard-pending-quotes').innerHTML = `${report.summary.pending_quotes} <small class="stat-change">Awaiting decision</small>`;
-      applicationsBody.innerHTML = applications.slice(0, 5).map(application => `<tr><td class="primary">${escapeHtml(application.client_name)}</td><td>${escapeHtml(application.service_name || 'Assessment')}</td><td>${escapeHtml(application.reference)}</td><td><span class="badge">${escapeHtml(application.status)}</span></td><td>${escapeHtml(application.created_at.slice(0, 10))}</td></tr>`).join('') || '<tr><td colspan="5">No applications yet.</td></tr>';
+      applicationsBody.innerHTML = applications.slice(0, 5).map(application => `<tr><td class="primary">${escapeHtml(application.client_name)}</td><td>${escapeHtml(application.service_name || 'Assessment')}</td><td>${escapeHtml(application.reference)}</td><td><span class="badge ${application.status === 'Review' ? 'pending' : application.status === 'Survey booked' ? 'info' : application.status === 'Draft' ? 'draft' : ''}">${escapeHtml(application.status)}</span></td><td>${escapeHtml(application.created_at.slice(0, 10))}</td></tr>`).join('') || '<tr><td colspan="5">No applications yet.</td></tr>';
+      lastMonthly = report.monthly || [];
+      renderDashboardChart();
+      const fieldwork = document.getElementById('dashboard-fieldwork');
+      if (fieldwork) {
+        const jobs = applications.filter(application => ['Survey booked', 'Approved'].includes(application.status)).slice(0, 3);
+        fieldwork.innerHTML = jobs.length ? jobs.map(application => `<div class="rate-item"><span><b style="display:block;color:var(--navy)">${escapeHtml(application.status)}</b>${escapeHtml(application.location)}</span><b>${escapeHtml(application.service_name || 'Site visit')}</b></div>`).join('') : '<div class="rate-item"><span>No survey-booked or approved projects.</span></div>';
+      }
     } catch (error) { notify(error.message); }
   }
+
+  let lastMonthly = [];
+  function renderDashboardChart() {
+    const months = Number(document.getElementById('dashboard-period')?.value || 6);
+    renderBars(document.getElementById('dashboard-chart'), lastMonthly.slice(-months).map(item => ({ label: item.label, current: item.collected, pale: item.quoted })));
+  }
+  document.getElementById('dashboard-period')?.addEventListener('change', renderDashboardChart);
 
   const clientForm = document.querySelector('[data-client-form]');
 
@@ -118,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const client = editingId ? await api.updateClient(editingId, data) : await api.createClient(data);
       clientForm.reset();
       delete clientForm.dataset.clientId;
-      submit.textContent = 'Save client';
+      submit.dataset.label = 'Save client';
       notify(`${client.name} has been ${editingId ? 'updated' : 'added'} to the client directory.`);
       refreshClients();
     } catch (error) {
@@ -183,12 +253,16 @@ document.addEventListener('DOMContentLoaded', () => {
         ['Survey fees', report.fees.survey_fees], ['Authority fees', report.fees.authority_fees],
         ['Tax', report.fees.tax], ['Plumbing charged', report.fees.plumbing_total],
         ['Accepted revenue', report.summary.collected_revenue], [],
-        ['Revenue by service', 'Amount (KES)'],
+        ['Quoted value by service', 'Amount (KES)'],
         ...report.services.map(item => [item.service, item.revenue]), [],
         ['Client', 'Total quoted (KES)'],
         ...(report.client_totals || []).map(item => [item.name, item.total]),
       ];
-      const csv = rows.map(row => row.map(value => `"${String(value ?? '').replace(/"/g, '""')}"`).join(',')).join('\r\n');
+      const csv = rows.map(row => row.map(value => {
+        const text = String(value ?? '');
+        const safe = typeof value === 'string' && /^[=+\-@\t\r\n]/.test(text) ? `'${text}` : text;
+        return `"${safe.replace(/"/g, '""')}"`;
+      }).join(',')).join('\r\n');
       const link = document.createElement('a');
       link.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
       link.download = 'aquaflow-report.csv'; link.click(); URL.revokeObjectURL(link.href);
@@ -209,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const service = id ? await api.updateService(id, data) : await api.createService(data);
       serviceForm.reset(); delete serviceForm.dataset.serviceId;
       document.getElementById('service-code').disabled = false;
-      submit.textContent = 'Add service';
+      submit.dataset.label = 'Add service';
       notify(`${service.name} has been ${id ? 'updated' : 'added'}.`);
       refreshServiceAdmin();
     } catch (error) { notify(error.message); } finally { buttonState(submit, false); }
@@ -219,6 +293,10 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonState(quoteButton, true);
 
     try {
+      if (!quoteForm.reportValidity()) return;
+      const expiry = new Date();
+      expiry.setDate(expiry.getDate() + Number(document.getElementById('quote-valid').value));
+      const validUntil = `${expiry.getFullYear()}-${String(expiry.getMonth() + 1).padStart(2, '0')}-${String(expiry.getDate()).padStart(2, '0')}`;
       const quote = await api.saveQuote({
         category: quoteForm.elements.category.value,
         drilling_type: quoteForm.elements.drilling.value,
@@ -233,9 +311,15 @@ document.addEventListener('DOMContentLoaded', () => {
         outlets: quoteForm.elements.outlets.value,
         outlet_rate: quoteForm.elements.outlet_rate.value,
         notes: quoteForm.elements['quote-note'].value.trim(),
+        valid_until: validUntil,
       });
       notify(`Quote ${quote.reference} has been saved.`);
+      const refField = document.getElementById('quote-ref');
+      if (refField) refField.value = quote.reference;
+      const summaryRef = document.getElementById('quote-summary-ref');
+      if (summaryRef) summaryRef.textContent = `${quote.reference} · Estimated cost`;
       refreshReports();
+      refreshQuotes();
     } catch (error) {
       notify(error.message);
     } finally {
@@ -267,6 +351,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (remove && window.confirm('Remove this client? Clients with applications are kept for record history.')) {
       try { await api.deleteClient(remove.dataset.deleteClient); notify('Client removed.'); refreshClients(); } catch (error) { notify(error.message); }
     }
+    const removeQuote = event.target.closest('[data-delete-quote]');
+    if (removeQuote && window.confirm('Remove this quotation? This cannot be undone.')) {
+      try { await api.deleteQuote(removeQuote.dataset.deleteQuote); notify('Quotation removed.'); refreshQuotes(); refreshReports(); refreshDashboard(); } catch (error) { notify(error.message); }
+    }
     const editService = event.target.closest('[data-edit-service]');
     if (editService && serviceForm) {
       try {
@@ -288,21 +376,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('change', async event => {
     const status = event.target.closest('[data-application-status]');
-    if (!status) return;
-    try { await api.updateApplication(status.dataset.applicationStatus, { status: status.value }); notify('Application status updated.'); } catch (error) { notify(error.message); refreshApplications(); }
+    if (status) {
+      try { await api.updateApplication(status.dataset.applicationStatus, { status: status.value }); notify('Application status updated.'); refreshDashboard(); } catch (error) { notify(error.message); refreshApplications(); }
+      return;
+    }
+    const quoteStatus = event.target.closest('[data-quote-status]');
+    if (quoteStatus) {
+      try {
+        await api.updateQuote(quoteStatus.dataset.quoteStatus, { status: quoteStatus.value });
+        notify(`Quotation marked ${quoteStatus.value}.`);
+        refreshReports(); refreshDashboard();
+      } catch (error) { notify(error.message); refreshQuotes(); }
+    }
   });
 
-  document.getElementById('quote-client')?.addEventListener('change', event => {
+  const syncQuoteClient = event => {
     try {
       const clients = JSON.parse(event.target.dataset.clients || '[]');
-      const client = clients.find(item => item.name === event.target.value);
+      const client = clients.find(item => item.name === event.target.value.trim());
       document.getElementById('quote-client-id').value = client ? client.id : '';
     } catch (_) { document.getElementById('quote-client-id').value = ''; }
-  });
+  };
+  document.getElementById('quote-client')?.addEventListener('input', syncQuoteClient);
+  document.getElementById('quote-client')?.addEventListener('change', syncQuoteClient);
 
   refreshClients();
   refreshApplications();
   refreshReports();
   refreshServiceAdmin();
   refreshDashboard();
+  refreshQuotes();
 });

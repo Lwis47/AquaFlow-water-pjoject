@@ -1,9 +1,10 @@
 const AquaFlowApi = (() => {
   const endpoint = 'backend/public/api.php';
 
-  async function request(route, options = {}) {
-    const separator = endpoint.includes('?') ? '&' : '?';
-    const response = await fetch(`${endpoint}${separator}route=${encodeURIComponent(route)}`,
+  async function request(route, options = {}, query = {}) {
+    const params = new URLSearchParams({ route });
+    Object.entries(query).forEach(([key, value]) => { if (value) params.set(key, value); });
+    const response = await fetch(`${endpoint}?${params}`,
       {
         headers: {
           Accept: 'application/json',
@@ -23,7 +24,7 @@ const AquaFlowApi = (() => {
 
   return {
     health: () => request('health'),
-    clients: search => request(`clients&search=${encodeURIComponent(search || '')}`),
+    clients: (search = '') => request('clients', {}, { search }),
     createClient: data => request('clients', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -35,7 +36,7 @@ const AquaFlowApi = (() => {
     services: () => request('services'),
     createService: data => request('services', { method: 'POST', body: JSON.stringify(data) }),
     updateService: (id, data) => request(`services/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
-    applications: (search = '', status = '') => request(`applications&search=${encodeURIComponent(search)}&status=${encodeURIComponent(status)}`),
+    applications: (search = '', status = '') => request('applications', {}, { search, status }),
     createApplication: data => request('applications', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -49,6 +50,11 @@ const AquaFlowApi = (() => {
       method: 'POST',
       body: JSON.stringify(data),
     }),
+    quotes: (search = '', status = '') => request('quotes', {}, { search, status }),
+    updateQuote: (id, data) => request(`quotes/${id}`, {
+      method: 'PUT', body: JSON.stringify(data),
+    }),
+    deleteQuote: id => request(`quotes/${id}`, { method: 'DELETE' }),
     reports: () => request('reports/overview'),
   };
 })();

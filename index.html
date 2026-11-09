@@ -12,18 +12,20 @@ initial-scale=1.0"
       content="AquaFlow Water Solutions operations dashboard"
     />
     <title>AquaFlow | Operations dashboard</title>
-    <link
-      rel="icon"
-      href="assets/icons/aquaflow-mark.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/icons/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#0369a1" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar">
         <a class="brand" href="index.html">
-          <img src="assets/icons/aquaflow-mark.svg" alt="" />
+          <img src="assets/icons/favicon.svg" alt="AquaFlow water drop mark" />
           <span>
             <strong class="brand-name"> AquaFlow</strong>
             <small class="brand-sub"> WATER SOLUTIONS</small>
@@ -114,8 +116,8 @@ initial-scale=1.0"
         </header>
         <section class="page-heading">
           <div>
-            <p class="eyebrow">Wednesday, 28 October</p>
-            <h1>Good morning, Cypher.</h1>
+            <p class="eyebrow" id="dashboard-date">Water operations overview</p>
+            <h1 id="dashboard-greeting">Good morning, Alex.</h1>
             <p class="heading-copy">
               Here is a clear view of AquaFlow's enquiries, field work and
               revenue today.
@@ -154,7 +156,7 @@ initial-scale=1.0"
           </article>
           <article class="stat-card">
             <span class="stat-icon navy"> ↗</span>
-            <span class="stat-label"> Month-to-date revenue</span>
+            <span class="stat-label"> Accepted quotation value</span>
             <strong class="stat-value" id="dashboard-revenue">
               KSh 1.84M <small class="stat-change"> ↑ 18%</small>
             </strong>
@@ -178,14 +180,15 @@ initial-scale=1.0"
                   </p>
                 </div>
                 <select
+                  id="dashboard-period"
                   aria-label="Time period"
                   style="width: 100px; min-height: 32px"
                 >
-                  <option>6 months</option>
-                  <option>This year</option>
+                  <option value="6">6 months</option>
+                  <option value="3">3 months</option>
                 </select>
               </div>
-              <div class="chart-wrap" aria-label="Revenue bar chart">
+              <div class="chart-wrap" id="dashboard-chart" aria-label="Revenue bar chart">
                 <div class="bar-set">
                   <i class="bar" style="height: 42%"> </i>
                   <i class="bar current" style="height: 56%"> </i>
@@ -337,32 +340,14 @@ initial-scale=1.0"
             <article class="panel">
               <div class="panel-head">
                 <div>
-                  <h2 class="panel-title">Field work this week</h2>
-                  <p class="panel-subtitle">Your upcoming confirmed jobs</p>
+                  <h2 class="panel-title">Confirmed field projects</h2>
+                  <p class="panel-subtitle">Survey-booked and approved applications</p>
                 </div>
-                <a class="link" href="reports.html"> Calendar →</a>
+                <a class="link" href="applications.html"> View projects →</a>
               </div>
-              <div class="rate-list">
+              <div class="rate-list" id="dashboard-fieldwork">
                 <div class="rate-item">
-                  <span>
-                    <b style="display: block; color: var(--navy)"> Thursday</b>
-                    08:30 · Machakos</span
-                  >
-                  <b> Site survey</b>
-                </div>
-                <div class="rate-item">
-                  <span>
-                    <b style="display: block; color: var(--navy)"> Friday</b>
-                    10:00 · Kiambu</span
-                  >
-                  <b> Pump install</b>
-                </div>
-                <div class="rate-item">
-                  <span>
-                    <b style="display: block; color: var(--navy)"> Saturday</b>
-                    09:00 · Kajiado</span
-                  >
-                  <b> Drilling</b>
+                  <span>Loading scheduled jobs…</span>
                 </div>
               </div>
             </article>

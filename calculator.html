@@ -9,18 +9,20 @@ initial-scale=1.0"
     />
     <meta name="description" content="AquaFlow quotation builder" />
     <title>AquaFlow | Quote builder</title>
-    <link
-      rel="icon"
-      href="assets/icons/aquaflow-mark.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/icons/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#0369a1" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar">
         <a class="brand" href="index.html">
-          <img src="assets/icons/aquaflow-mark.svg" alt="" />
+          <img src="assets/icons/favicon.svg" alt="AquaFlow water drop mark" />
           <span>
             <strong class="brand-name"> AquaFlow</strong>
             <small class="brand-sub"> WATER SOLUTIONS</small>
@@ -147,7 +149,8 @@ initial-scale=1.0"
                   <input
                     class="field"
                     id="quote-ref"
-                    value="AQ-2026-043"
+                    value=""
+                    placeholder="Assigned when saved"
                     readonly
                   />
                 </div>
@@ -165,6 +168,7 @@ initial-scale=1.0"
                     <option>Symmetric</option>
                     <option>Core</option>
                     <option>Geotechnical</option>
+                    <option>None</option>
                   </select>
                 </div>
                 <div class="form-field">
@@ -201,9 +205,9 @@ initial-scale=1.0"
                 <div class="form-field">
                   <label for="quote-valid"> Quote validity</label>
                   <select id="quote-valid">
-                    <option>30 days</option>
-                    <option>14 days</option>
-                    <option>7 days</option>
+                    <option value="30">30 days</option>
+                    <option value="14">14 days</option>
+                    <option value="7">7 days</option>
                   </select>
                 </div>
                 <div class="form-field full">
@@ -245,7 +249,7 @@ initial-scale=1.0"
           </article>
           <aside class="quote-summary">
             <h3>Quotation summary</h3>
-            <p class="quote-id">AQ-2026-043 · Estimated cost</p>
+            <p class="quote-id" id="quote-summary-ref">Reference assigned on save · Estimated cost</p>
             <div class="quote-line">
               <span> Survey &amp; authority fees</span>
               <b data-quote-fees> KSh 17,000</b>

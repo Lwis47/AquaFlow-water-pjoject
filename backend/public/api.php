@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use AquaFlow\Database;
-use AquaFlow\QuoteCalculator;
 use AquaFlow\Repository;
 use AquaFlow\Response;
 use InvalidArgumentException;
@@ -80,13 +79,28 @@ try {
     }
 
     if ($method === 'POST' && $route === 'quotes/calculate') {
-        $quote = QuoteCalculator::calculate(Response::input());
+        $quote = $repository->calculateQuote(Response::input());
         Response::send(['ok' => true, 'data' => $quote]);
     }
 
     if ($method === 'POST' && $route === 'quotes') {
         $quote = $repository->saveQuote(Response::input());
         Response::send(['ok' => true, 'data' => $quote], 201);
+    }
+
+    if ($method === 'GET' && $route === 'quotes') {
+        $search = (string) ($_GET['search'] ?? '');
+        $status = (string) ($_GET['status'] ?? '');
+        Response::send(['ok' => true, 'data' => $repository->quotes($search, $status)]);
+    }
+
+    if ($method === 'PUT' && preg_match('#^quotes/(\\d+)$#', $route, $matches)) {
+        Response::send(['ok' => true, 'data' => $repository->updateQuote((int) $matches[1], Response::input())]);
+    }
+
+    if ($method === 'DELETE' && preg_match('#^quotes/(\\d+)$#', $route, $matches)) {
+        $repository->deleteQuote((int) $matches[1]);
+        Response::send(['ok' => true, 'data' => ['deleted' => true]]);
     }
 
     if ($method === 'GET' && $route === 'reports/overview') {
@@ -96,6 +110,15 @@ try {
     Response::error('Route not found.', 404);
 } catch (InvalidArgumentException $exception) {
     Response::error($exception->getMessage(), 422);
+} catch (RuntimeException $exception) {
+    $message = $exception->getMessage();
+    if (str_contains($message, 'pdo_sqlite')) {
+        Response::error($message, 500);
+    }
+    if (str_contains($message, 'not found')) {
+        Response::error($message, 404);
+    }
+    Response::error('The server could not process this request.', 500);
 } catch (Throwable) {
     Response::error('The server could not process this request.', 500);
 }

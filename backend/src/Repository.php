@@ -122,13 +122,21 @@ final class Repository
 
     public function createService(array $input): array
     {
-        $code = strtolower(preg_replace('/[^a-z0-9]+/', '-', $this->required($input, 'code')) ?? '');
+        $code = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($this->required($input, 'code'))) ?? '', '-');
+        if ($code === '') {
+            throw new InvalidArgumentException('Service code must contain letters or numbers.');
+        }
         $name = $this->required($input, 'name');
         $group = $this->required($input, 'service_group');
         $model = $this->pricingModel($input['pricing_model'] ?? 'fixed');
         $price = $this->optionalNumber($input, 'base_price');
         if ($model === 'fixed' && $price === null) {
             throw new InvalidArgumentException('A base price is required for fixed-price services.');
+        }
+        $existing = $this->connection->prepare('SELECT id FROM services WHERE code = :code');
+        $existing->execute([':code' => $code]);
+        if ($existing->fetch() !== false) {
+            throw new InvalidArgumentException('A service with code "' . $code . '" already exists.');
         }
         $statement = $this->connection->prepare(
             'INSERT INTO services (code, name, service_group, description, base_price, pricing_model)
@@ -144,11 +152,14 @@ final class Repository
 
     public function updateService(int $id, array $input): array
     {
-        $this->service($id);
+        $current = $this->service($id);
         $name = $this->required($input, 'name');
         $group = $this->required($input, 'service_group');
         $model = $this->pricingModel($input['pricing_model'] ?? 'fixed');
         $price = $this->optionalNumber($input, 'base_price');
+        if ($model === 'fixed' && $price === null) {
+            throw new InvalidArgumentException('A base price is required for fixed-price services.');
+        }
         $statement = $this->connection->prepare(
             'UPDATE services SET name = :name, service_group = :group, description = :description,
              base_price = :price, pricing_model = :model, active = :active WHERE id = :id'
@@ -157,7 +168,7 @@ final class Repository
             ':id' => $id, ':name' => $name, ':group' => $group,
             ':description' => $this->optional($input, 'description') ?? $name,
             ':price' => $price, ':model' => $model,
-            ':active' => !empty($input['active']) ? 1 : 0,
+            ':active' => array_key_exists('active', $input) ? (!empty($input['active']) ? 1 : 0) : $current['active'],
         ]);
         return $this->service($id);
     }
@@ -230,9 +241,14 @@ final class Repository
         return $this->application($id);
     }
 
+    public function calculateQuote(array $input): array
+    {
+        return QuoteCalculator::calculate($input, $this->services());
+    }
+
     public function saveQuote(array $input): array
     {
-        $calculation = QuoteCalculator::calculate($input);
+        $calculation = $this->calculateQuote($input);
         $clientId = $this->optionalExistingId($input['client_id'] ?? null, 'clients');
         $applicationId = $this->optionalExistingId($input['application_id'] ?? null, 'applications');
         $reference = $this->nextQuoteReference();
@@ -272,7 +288,7 @@ final class Repository
             ':subtotal' => $calculation['subtotal'],
             ':tax' => $calculation['tax'],
             ':total' => $calculation['total'],
-            ':valid_until' => $this->optional($input, 'valid_until'),
+            ':valid_until' => $this->optionalDate($input, 'valid_until'),
             ':notes' => $this->optional($input, 'notes'),
         ]);
 
@@ -282,16 +298,16 @@ final class Repository
     public function overview(): array
     {
         $counts = $this->connection->query(
-            'SELECT
+            "SELECT
                 (SELECT COUNT(*) FROM clients) AS clients,
                 (SELECT COUNT(*) FROM applications
-                 WHERE status NOT IN ("Completed")) AS active_projects,
+                 WHERE status NOT IN ('Completed')) AS active_projects,
                 (SELECT COUNT(*) FROM applications
-                 WHERE status = "Review") AS pending_applications,
+                 WHERE status = 'Review') AS pending_applications,
                 (SELECT COUNT(*) FROM quotations
-                 WHERE status IN ("Draft", "Sent")) AS pending_quotes,
+                 WHERE status IN ('Draft', 'Sent')) AS pending_quotes,
                 (SELECT COALESCE(SUM(total), 0) FROM quotations
-                 WHERE status = "Accepted") AS collected_revenue'
+                 WHERE status = 'Accepted') AS collected_revenue"
         )->fetch();
         $fees = $this->connection->query(
             'SELECT COALESCE(SUM(survey_fee), 0) AS survey_fees,
@@ -302,12 +318,12 @@ final class Repository
              FROM quotations'
         )->fetch();
         $services = $this->connection->query(
-            'SELECT service, SUM(amount) AS revenue FROM (
-                SELECT "Drilling" AS service, drilling_fee AS amount FROM quotations
-                UNION ALL SELECT "Pumps", pump_fee FROM quotations
-                UNION ALL SELECT "Depth and height", depth_fee FROM quotations
-                UNION ALL SELECT "Plumbing", plumbing_fee FROM quotations
-             ) GROUP BY service ORDER BY revenue DESC'
+            "SELECT service, SUM(amount) AS revenue FROM (
+                SELECT 'Drilling' AS service, drilling_fee AS amount FROM quotations
+                UNION ALL SELECT 'Pumps', pump_fee FROM quotations
+                UNION ALL SELECT 'Depth and height', depth_fee FROM quotations
+                UNION ALL SELECT 'Plumbing', plumbing_fee FROM quotations
+             ) GROUP BY service ORDER BY revenue DESC"
         )->fetchAll();
 
         $clientTotals = $this->connection->query(
@@ -316,7 +332,108 @@ final class Repository
              GROUP BY clients.id ORDER BY total DESC, clients.name ASC LIMIT 10'
         )->fetchAll();
 
-        return ['summary' => $counts, 'fees' => $fees, 'services' => $services, 'client_totals' => $clientTotals];
+        $quoteStatus = $this->connection->query(
+            "SELECT status, COUNT(*) AS count, COALESCE(SUM(total), 0) AS value
+             FROM quotations GROUP BY status"
+        )->fetchAll();
+
+        return [
+            'summary' => $counts,
+            'fees' => $fees,
+            'services' => $services,
+            'client_totals' => $clientTotals,
+            'quote_status' => $quoteStatus,
+            'monthly' => $this->monthlyRevenue(),
+        ];
+    }
+
+    public function quotes(string $search = '', string $status = ''): array
+    {
+        $query = 'SELECT quotations.*, clients.name AS client_name
+                  FROM quotations
+                  LEFT JOIN clients ON clients.id = quotations.client_id
+                  WHERE (quotations.reference LIKE :search OR clients.name LIKE :search)';
+        $parameters = [':search' => '%' . trim($search) . '%'];
+
+        if ($status !== '') {
+            $query .= ' AND quotations.status = :status';
+            $parameters[':status'] = $this->quoteStatus($status);
+        }
+
+        $query .= ' ORDER BY quotations.created_at DESC, quotations.id DESC';
+        $statement = $this->connection->prepare($query);
+        $statement->execute($parameters);
+
+        return $statement->fetchAll();
+    }
+
+    public function updateQuote(int $id, array $input): array
+    {
+        $this->quote($id);
+        $status = isset($input['status']) ? $this->quoteStatus((string) $input['status']) : null;
+        $validUntil = $this->optionalDate($input, 'valid_until');
+
+        if ($status !== null) {
+            $statement = $this->connection->prepare('UPDATE quotations SET status = :status WHERE id = :id');
+            $statement->execute([':id' => $id, ':status' => $status]);
+        }
+        if (array_key_exists('notes', $input)) {
+            $statement = $this->connection->prepare('UPDATE quotations SET notes = :notes WHERE id = :id');
+            $statement->execute([':id' => $id, ':notes' => $this->optional($input, 'notes')]);
+        }
+        if (array_key_exists('valid_until', $input)) {
+            $statement = $this->connection->prepare('UPDATE quotations SET valid_until = :valid_until WHERE id = :id');
+            $statement->execute([':id' => $id, ':valid_until' => $validUntil]);
+        }
+
+        return $this->quote($id);
+    }
+
+    public function deleteQuote(int $id): void
+    {
+        $statement = $this->connection->prepare('DELETE FROM quotations WHERE id = :id');
+        $statement->execute([':id' => $id]);
+        if ($statement->rowCount() === 0) {
+            throw new RuntimeException('Quotation not found.');
+        }
+    }
+
+    private function monthlyRevenue(): array
+    {
+        $rows = $this->connection->query(
+            "SELECT strftime('%Y-%m', created_at) AS month,
+                    COALESCE(SUM(total), 0) AS quoted,
+                    COALESCE(SUM(CASE WHEN status = 'Accepted' THEN total ELSE 0 END), 0) AS collected
+             FROM quotations
+             GROUP BY month ORDER BY month ASC"
+        )->fetchAll();
+        $byMonth = [];
+        foreach ($rows as $row) {
+            $byMonth[$row['month']] = $row;
+        }
+
+        $months = [];
+        for ($offset = 5; $offset >= 0; $offset--) {
+            $key = date('Y-m', strtotime('-' . $offset . ' months', strtotime('first day of this month')));
+            $months[] = [
+                'month' => $key,
+                'label' => date('M', strtotime($key . '-01')),
+                'quoted' => (int) ($byMonth[$key]['quoted'] ?? 0),
+                'collected' => (int) ($byMonth[$key]['collected'] ?? 0),
+            ];
+        }
+
+        return $months;
+    }
+
+    private function quoteStatus(string $value): string
+    {
+        $allowed = ['Draft', 'Sent', 'Accepted', 'Expired'];
+        if (!in_array($value, $allowed, true)) {
+            throw new InvalidArgumentException('Quotation status is invalid.');
+        }
+
+        return $value;
     }
 
     private function application(int $id): array
@@ -329,7 +446,7 @@ final class Repository
             }
         }
 
-        throw new RuntimeException('Application could not be read after creation.');
+        throw new RuntimeException('Application not found.');
     }
 
     private function quote(int $id): array
@@ -339,7 +456,7 @@ final class Repository
         $quote = $statement->fetch();
 
         if ($quote === false) {
-            throw new RuntimeException('Quotation could not be read after creation.');
+            throw new RuntimeException('Quotation not found.');
         }
 
         return $quote;
@@ -452,14 +569,29 @@ final class Repository
         return $value === '' ? null : $value;
     }
 
+    private function optionalDate(array $input, string $key): ?string
+    {
+        $value = $input[$key] ?? null;
+        if ($value === null || $value === '') {
+            return null;
+        }
+
+        if (!is_string($value) || !preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/D', $value)
+            || !checkdate((int) substr($value, 5, 2), (int) substr($value, 8, 2), (int) substr($value, 0, 4))) {
+            throw new InvalidArgumentException($key . ' must be a valid date in Y-m-d format.');
+        }
+
+        return $value;
+    }
+
     private function optionalNumber(array $input, string $key): ?float
     {
         if (!array_key_exists($key, $input) || $input[$key] === '') {
             return null;
         }
 
-        if (!is_numeric($input[$key]) || (float) $input[$key] < 0) {
-            throw new InvalidArgumentException($key . ' must be a positive number.');
+        if (!is_numeric($input[$key]) || !is_finite((float) $input[$key]) || (float) $input[$key] < 0) {
+            throw new InvalidArgumentException($key . ' must be a finite non-negative number.');
         }
 
         return (float) $input[$key];
@@ -467,15 +599,20 @@ final class Repository
 
     private function nextApplicationReference(): string
     {
-        $number = (int) $this->connection->query('SELECT COUNT(*) FROM applications')->fetchColumn();
-
-        return 'AF-' . str_pad((string) ($number + 1028), 4, '0', STR_PAD_LEFT);
+        return 'AF-' . str_pad((string) ($this->nextSequence('applications') + 1027), 4, '0', STR_PAD_LEFT);
     }
 
     private function nextQuoteReference(): string
     {
-        $number = (int) $this->connection->query('SELECT COUNT(*) FROM quotations')->fetchColumn();
+        return 'AQ-' . date('Y') . '-' . str_pad((string) $this->nextSequence('quotations'), 3, '0', STR_PAD_LEFT);
+    }
 
-        return 'AQ-' . date('Y') . '-' . str_pad((string) ($number + 1), 3, '0', STR_PAD_LEFT);
+    private function nextSequence(string $table): int
+    {
+        $statement = $this->connection->prepare('SELECT seq FROM sqlite_sequence WHERE name = :name');
+        $statement->execute([':name' => $table]);
+        $sequence = $statement->fetchColumn();
+
+        return $sequence === false ? 1 : (int) $sequence + 1;
     }
 }

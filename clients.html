@@ -9,18 +9,20 @@ initial-scale=1.0"
     />
     <meta name="description" content="AquaFlow client directory" />
     <title>AquaFlow | Clients</title>
-    <link
-      rel="icon"
-      href="assets/icons/aquaflow-mark.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/icons/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#0369a1" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar">
         <a class="brand" href="index.html">
-          <img src="assets/icons/aquaflow-mark.svg" alt="" />
+          <img src="assets/icons/favicon.svg" alt="AquaFlow water drop mark" />
           <span>
             <strong class="brand-name"> AquaFlow</strong>
             <small class="brand-sub"> WATER SOLUTIONS</small>
@@ -136,11 +138,12 @@ initial-scale=1.0"
                 </svg>
                 <input
                   data-filter-table="#client-list"
+                  data-filter-select="#client-category-filter"
                   placeholder="Search clients"
                 />
               </div>
-              <select class="filter-select">
-                <option>All categories</option>
+              <select class="filter-select" id="client-category-filter" aria-label="Filter by category">
+                <option value="">All categories</option>
                 <option>Domestic</option>
                 <option>Commercial</option>
                 <option>Industrial</option>
@@ -193,25 +196,12 @@ initial-scale=1.0"
               </article>
             </div>
           </div>
-          <aside class="insight-card">
+          <aside class="insight-card" id="client-mix">
             <h3>Client mix</h3>
             <p>Distribution of your current client book by category.</p>
-            <div class="progress-row">
-              <span> Domestic <b> 53%</b> </span>
-              <div class="progress">
-                <i style="width: 53%"> </i>
-              </div>
-            </div>
-            <div class="progress-row">
-              <span> Commercial <b> 35%</b> </span>
-              <div class="progress">
-                <i style="width: 35%"> </i>
-              </div>
-            </div>
-            <div class="progress-row">
-              <span> Industrial <b> 12%</b> </span>
-              <div class="progress">
-                <i style="width: 12%"> </i>
+            <div id="client-mix-rows">
+              <div class="progress-row">
+                <span> Loading client mix… </span>
               </div>
             </div>
           </aside>
